@@ -237,17 +237,17 @@ echo "<h3>CVSS Score For Your Browser: " . $totalCVE . "</h3>";
 $final_score = (round(($colvals[49] + $totalCVE), 2));
 echo "<h3>Final Score For Your Browser is: <span id='scoreColor'>" . $final_score . "</span></h3>";
 // echo "<h3>Updated: " . $tdate . "</h3>";
-
+$UA_length = strlen($useragent);
 $sqlNewRow = "INSERT into agentstrings(parent, browser_bits, platform, platform_description, platform_bits, platform_maker, 
     javaapplets, device_name, device_maker, device_code_name, device_brand_name, renderingengine_name, renderingengine_version, 
     renderingengine_description, renderingengine_maker, comments, browser, browser_type, browser_maker, `version`, majorver, frames, 
     iframes, tabless, cookies, javascript, ismobiledevice, cssversion, device_type, device_pointing_method, browser_modus, minorver, 
     platform_version, alpha, beta, win16, win32, win64, backgroundsounds, vbscript, activexcontrols, istablet, issyndicationreader, 
-    crawler, isfake, isanonymized, ismodified, privacy_score, new_privacy_score,cvss_score,checkCVSS,time_privacy_score,time_cvss_score,last_seen,num_of_vuln, full_UA) 
+    crawler, isfake, isanonymized, ismodified, privacy_score, new_privacy_score,cvss_score,checkCVSS,time_privacy_score,time_cvss_score,last_seen,num_of_vuln, full_UA, UA_length, times_seen) 
     values('$colvals[1]','$colvals[2]','$colvals[3]','$colvals[4]','$colvals[5]','$colvals[6]','$colvals[7]','$colvals[8]','$colvals[9]',
     '$colvals[10]','$colvals[11]', '$colvals[12]','$colvals[13]','$colvals[14]','$colvals[15]','$colvals[16]','$colvals[17]','$colvals[18]',
     '$colvals[19]','$colvals[20]','$colvals[21]', '$colvals[22]','$colvals[23]','$colvals[24]','$colvals[25]','$colvals[26]','$colvals[27]',
     '$colvals[28]','$colvals[29]','$colvals[30]','$colvals[31]', '$colvals[32]','$colvals[33]','$colvals[34]','$colvals[35]','$colvals[36]',
     '$colvals[37]','$colvals[38]','$colvals[39]','$colvals[40]','$colvals[41]', '$colvals[42]','$colvals[43]','$colvals[44]','$colvals[45]',
-    '$colvals[46]','$colvals[47]','$colvals[48]','$colvals[49]',$totalCVE,1,'$tdate','$tdate','$tdate','$num_of_vuln', '$useragent', strlen('$useragent'), 1)";
+    '$colvals[46]','$colvals[47]','$colvals[48]','$colvals[49]',$totalCVE,1,'$tdate','$tdate','$tdate','$num_of_vuln', '$useragent', $UA_length, 1)";
 $conn->query($sqlNewRow);
