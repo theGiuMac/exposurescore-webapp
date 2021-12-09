@@ -30,6 +30,8 @@ if ($resultCheckRow->num_rows > 0) { // this row is founded in the database
         $new_date = date("Y-m-d h:m:s");
         $sqlLastSeen = "UPDATE agentstrings SET last_seen ='" . $new_date . "' WHERE browserid =" . $rowCheck['browserid'];
         $conn->query($sqlLastSeen);
+        $sqlTimesSeen = "UPDATE agentstrings SET times_seen ='" . $rowCheck['times_seen'] + 1 ."' WHERE browserid =" . $rowCheck['browserid'];
+        $conn->query($sqlTimesSeen);
     }
 } else if ($resultCheckRow2->num_rows > 0) { // intermediate case 1 cvss_score is zero
     require "cvss_intermediate_case.php";

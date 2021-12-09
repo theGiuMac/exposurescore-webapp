@@ -249,5 +249,5 @@ $sqlNewRow = "INSERT into agentstrings(parent, browser_bits, platform, platform_
     '$colvals[19]','$colvals[20]','$colvals[21]', '$colvals[22]','$colvals[23]','$colvals[24]','$colvals[25]','$colvals[26]','$colvals[27]',
     '$colvals[28]','$colvals[29]','$colvals[30]','$colvals[31]', '$colvals[32]','$colvals[33]','$colvals[34]','$colvals[35]','$colvals[36]',
     '$colvals[37]','$colvals[38]','$colvals[39]','$colvals[40]','$colvals[41]', '$colvals[42]','$colvals[43]','$colvals[44]','$colvals[45]',
-    '$colvals[46]','$colvals[47]','$colvals[48]','$colvals[49]',$totalCVE,1,'$tdate','$tdate','$tdate','$num_of_vuln', '$useragent')";
+    '$colvals[46]','$colvals[47]','$colvals[48]','$colvals[49]',$totalCVE,1,'$tdate','$tdate','$tdate','$num_of_vuln', '$useragent', strlen('$useragent'), 1)";
 $conn->query($sqlNewRow);
