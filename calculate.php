@@ -7,7 +7,7 @@ $final_score = 0;
 
 // -----------------------------------------------------------------------------------
 
-function bestCase(&$flag) {
+function bestCase(&$flag, $colvals, &$final_score) {
     $checkRow = "SELECT * FROM agentstrings 
     WHERE parent like'" . $colvals[1] . "' AND browser_bits=" . $colvals[2] . " AND platform LIKE '" . $colvals[3] .
         "' AND platform_description LIKE '" . $colvals[4] . "' AND platform_bits =" . $colvals[5] .
@@ -34,7 +34,7 @@ function bestCase(&$flag) {
     $flag = true;
 }
 
-function cvssIntermediateCase(&$flag) {
+function cvssIntermediateCase(&$flag, $colvals, &$final_score) {
     $checkRow2 = "SELECT * FROM agentstrings 
     WHERE parent like'" . $colvals[1] . "' AND browser_bits=" . $colvals[2] . " AND platform LIKE '" . $colvals[3] .
         "' AND platform_description LIKE '" . $colvals[4] . "' AND platform_bits =" . $colvals[5] .
@@ -64,7 +64,7 @@ function cvssIntermediateCase(&$flag) {
 }
 
 
-function privacyIntermediateCase(&$flag) {
+function privacyIntermediateCase(&$flag, $colvals, &$final_score) {
     $checkRow3 = "SELECT * FROM agentstrings 
     WHERE parent like'" . $colvals[1] . "' AND browser_bits=" . $colvals[2] . " AND platform LIKE '" . $colvals[3] .
         "' AND platform_description LIKE '" . $colvals[4] . "' AND platform_bits =" . $colvals[5] .
@@ -82,12 +82,12 @@ function privacyIntermediateCase(&$flag) {
 }
 
 $flag = true;
-bestCase($flag);
+bestCase($flag, $colvals, $final_score);
 if ($flag) {
-    cvssIntermediateCase($flag);
+    cvssIntermediateCase($flag, $colvals, $final_score);
 }
 if ($flag) {
-    privacyIntermediateCase($flag);
+    privacyIntermediateCase($flag, $colvals, $final_score);
 }
 if ($flag) {
     echo "<h3>No match in the database and CVSS score is zero</h3>";
