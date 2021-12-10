@@ -1,5 +1,5 @@
 <?php
-$stmt1 = "SELECT distinct `parent`, `browser_bits`, `platform`, `platform_description`, `platform_bits`, `platform_maker`, 
+$stmt1 = "SELECT DISTINCT `parent`, `browser_bits`, `platform`, `platform_description`, `platform_bits`, `platform_maker`, 
 `javaapplets`, `device_name`, `device_maker`, `device_code_name`, `device_brand_name`, `renderingengine_name`, 
 `renderingengine_version`, `renderingengine_description`, `renderingengine_maker`, `comments`, `browser`, `browser_type`, 
 `browser_maker`, `version`, `majorver`, `frames`, `iframes`, `tabless`, `cookies`, `javascript`, `ismobiledevice`, `cssversion`, 
