@@ -90,7 +90,7 @@ function worstCase($colvals, &$final_score, $conn) {
 if (bestCase($colvals, $final_score, $conn)) {
     if (cvssIntermediateCase($colvals, $final_score, $conn)) {
         if (privacyIntermediateCase($colvals, $final_score, $conn)) {
-            worstCase($colvals, $final_score, $conn);  
+            worstCase($colvals, $final_score, $conn, $useragent);  
         }
     }
 }
