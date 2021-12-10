@@ -117,7 +117,7 @@ if ($result > 0) {
 // }
 // ------------------------------------------------------------------------------------ End CVE Result -----------------------------
 // -------- get total of rows in our database ---
-$sqlAgent = "SELECT DISTINCT agentstrings.'browser' FROM agentstrings";
+$sqlAgent = "SELECT DISTINCT 'browser' FROM agentstrings";
 $resultAgent = $conn->query($sqlAgent);
 $totalRows = 0;
 if ($resultAgent->num_rows > 0) {
