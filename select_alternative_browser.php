@@ -14,7 +14,7 @@ $counter = 1;
 $result1 = $conn->query($stmt1);
 echo "<hr style='width:500px;text-align: center;margin:auto; margin-bottom:10px'>";
 echo "<h4>Alternative Browsers Selected:</h4>";
-echo "<pre>" . result1->num_rows . "</pre>";
+echo "<pre>" . $result1->num_rows . "</pre>";
 $browsers = array();
 if ($result1->num_rows > 0) {
     while ($row = $result1->fetch_assoc()) {
