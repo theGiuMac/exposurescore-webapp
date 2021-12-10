@@ -82,7 +82,7 @@ function privacyIntermediateCase($colvals, &$final_score, $conn) {
     return true;
 }
 
-function worstCase($colvals, &$final_score, $conn) {
+function worstCase($colvals, &$final_score, $conn, $useragent) {
     echo "<h3>No match in the database and CVSS score is zero</h3>";
     require "worse_case.php";
 }
