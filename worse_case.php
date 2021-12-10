@@ -117,7 +117,7 @@ if ($result > 0) {
 // }
 // ------------------------------------------------------------------------------------ End CVE Result -----------------------------
 // -------- get total of rows in our database ---
-$sqlAgent = "SELECT * FROM agentstrings";
+$sqlAgent = "SELECT DISTINCT agentstrings.'browser' FROM agentstrings";
 $resultAgent = $conn->query($sqlAgent);
 $totalRows = 0;
 if ($resultAgent->num_rows > 0) {
@@ -163,6 +163,7 @@ for ($i = 0; $i < 47; $i++) {
     // $SofJ[$i] = (($totalRows - ($totalRows - $Null[$i])) / $totalRows);
     $SofJ[$i] = (($totalRows - abs(($totalRows - $Null[$i]))) / $totalRows);
 
+    // why total rows and not n, the number of browsers?
 }
 //-------------------------------------------------
 // calculate RoverJ :

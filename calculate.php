@@ -1,12 +1,6 @@
 <?php
 $final_score = 0;
 
-// ----------
-
-// ----------
-
-// -----------------------------------------------------------------------------------
-
 function bestCase($colvals, &$final_score, $conn) {
     $checkRow = "SELECT * FROM agentstrings 
     WHERE parent like'" . $colvals[1] . "' AND browser_bits=" . $colvals[2] . " AND platform LIKE '" . $colvals[3] .
@@ -63,7 +57,6 @@ function cvssIntermediateCase($colvals, &$final_score, $conn) {
     // CVSS intermediate case does not apply
     return true;
 }
-
 
 function privacyIntermediateCase($colvals, &$final_score, $conn) {
     $checkRow3 = "SELECT * FROM agentstrings 
