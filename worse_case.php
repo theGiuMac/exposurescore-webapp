@@ -117,7 +117,7 @@ if ($result > 0) {
 // }
 // ------------------------------------------------------------------------------------ End CVE Result -----------------------------
 
-$sqlAgent = "SELECT COUNT(*) FROM useragents";
+$sqlAgent = "SELECT COUNT(SELECT * FROM useragents) FROM useragents";
 $totalRows = $conn->query($sqlAgent);
 
 // ---------- define the constants our needed ---
