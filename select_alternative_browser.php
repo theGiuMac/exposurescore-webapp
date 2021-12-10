@@ -10,7 +10,6 @@ WHERE browser_bits=$colvals[2] and platform_bits=$colvals[5] and browser_type li
 and platform_maker like '$colvals[6]' and platform_description like '$colvals[4]' and privacy_score < $colvals[48] 
 AND ((new_privacy_score + cvss_score) < $final_score) and `version` not like '0.0' and cvss_score > 0 and cvss_score < 5 ORDER BY cvss_score DESC, new_privacy_score DESC limit 5;
 
-// echo "<br> $stmt1 <br";
 
 $counter = 1;
 $result1 = $conn->query($stmt1);

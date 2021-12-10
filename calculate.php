@@ -29,6 +29,7 @@ function bestCase(&$flag, $colvals, &$final_score) {
             $sqlTimesSeen = "UPDATE agentstrings SET times_seen ='" . $new_times_seen ."' WHERE browserid =" . $rowCheck['browserid'];
             $conn->query($sqlTimesSeen);
             $flag = false;
+	}
     }
     // Best case does not apply
     $flag = true;
@@ -46,7 +47,7 @@ function cvssIntermediateCase(&$flag, $colvals, &$final_score) {
         $resultCheckRow = $conn->query($checkRow);
         if ($resultCheckRow->num_rows > 0) {
             if ($rowCheck = $resultCheckRow->fetch_assoc()) {
-	            echo "<h3>CVSS score is zero</h3>";
+	        echo "<h3>CVSS score is zero</h3>";
                 $final_score = ($rowCheck['new_privacy_score'] + $rowCheck['cvss_score']);
                 echo "<h3>Relative Score For Your Browser: " . $rowCheck['new_privacy_score'] . "</h3>";
                 echo "<h3>CVSS Score For Your Browser: " . $rowCheck['cvss_score'] . "</h3>";
