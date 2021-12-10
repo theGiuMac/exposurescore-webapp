@@ -227,7 +227,7 @@ if ($result_MAX_MIN->num_rows > 0) {
          }
      }
 }
-$score = round(((($score - $min) / ($max - $min)) * 10), 2);
+// $score = round(((($score - $min) / ($max - $min)) * 10), 2);
 $colvals[49] = $score;
 
 $tdate = date("Y-m-d h:m:s");
