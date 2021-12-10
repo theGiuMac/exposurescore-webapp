@@ -8,9 +8,10 @@ $stmt1 = "SELECT DISTINCT `parent`, `browser_bits`, `platform`, `platform_descri
 `ismodified`, `privacy_score`, `new_privacy_score` , `cvss_score` FROM agentstrings
 WHERE browser_bits=$colvals[2] and platform_bits=$colvals[5] and browser_type like '$colvals[18]' and device_type like '$colvals[29]' 
 and platform_maker like '$colvals[6]' and platform_description like '$colvals[4]' and privacy_score < $colvals[48] 
-AND ((new_privacy_score + cvss_score) < $final_score) and `version` not like '0.0' ORDER BY cvss_score DESC, new_privacy_score DESC, version DESC limit 10";
+AND ((new_privacy_score + cvss_score) < $final_score) and `version` not like '0.0' ORDER BY cvss_score DESC, new_privacy_score DESC, version DESC limit 25";
 
-$counter = 1;
+$bCounter = 1;
+$lCounter = 1;
 $result1 = $conn->query($stmt1);
 echo "<hr style='width:500px;text-align: center;margin:auto; margin-bottom:10px'>";
 echo "<h4>Alternative Browsers Selected:</h4>";
@@ -19,18 +20,19 @@ $browsers = array();
 if ($result1->num_rows > 0) {
     while ($row = $result1->fetch_assoc()) {
         if (in_array($row['browser'], $browsers)) {
-            --$counter;
+            --$bCounter;
             continue;
         }
-        if ($counter > 5 or in_array($row['browser'], $browsers)) {
+        if ($bCounter > 5) {
             continue;
         }
         array_push($browsers, $row['browser']); 
-        echo "<h5> $counter. " .
+        echo "<h5> $lCounter. " .
             $row['browser'] . " " . $row['version'] . " "  . $row['browser_bits'] .
             " bit for " . $row['platform'] . " " . $row['platform_bits'] . " bit | Total Score: <b id ='scoreColor'>" . ($row['new_privacy_score'] + $row['cvss_score']) . "</b>"
             . "</h5>";
-        $counter += 1;
+        ++$bCounter;
+        ++$lCounter;
     }
 } else {
     echo "your Browser is Unique";
