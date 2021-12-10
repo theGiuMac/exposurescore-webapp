@@ -7,7 +7,7 @@ $final_score = 0;
 
 // -----------------------------------------------------------------------------------
 
-function bestCase() {
+function bestCase(&$flag) {
     $checkRow = "SELECT * FROM agentstrings 
     WHERE parent like'" . $colvals[1] . "' AND browser_bits=" . $colvals[2] . " AND platform LIKE '" . $colvals[3] .
         "' AND platform_description LIKE '" . $colvals[4] . "' AND platform_bits =" . $colvals[5] .
@@ -28,13 +28,13 @@ function bestCase() {
             $new_times_seen = $rowCheck['times_seen'] + 1;
             $sqlTimesSeen = "UPDATE agentstrings SET times_seen ='" . $new_times_seen ."' WHERE browserid =" . $rowCheck['browserid'];
             $conn->query($sqlTimesSeen);
-            return true;
+            $flag = false;
     }
     // Best case does not apply
-    return false;
+    $flag = true;
 }
 
-function cvssIntermediateCase() {
+function cvssIntermediateCase(&$flag) {
     $checkRow2 = "SELECT * FROM agentstrings 
     WHERE parent like'" . $colvals[1] . "' AND browser_bits=" . $colvals[2] . " AND platform LIKE '" . $colvals[3] .
         "' AND platform_description LIKE '" . $colvals[4] . "' AND platform_bits =" . $colvals[5] .
@@ -55,16 +55,16 @@ function cvssIntermediateCase() {
                 $new_date = date("Y-m-d h:m:s");
                 $sqlLastSeen = "UPDATE agentstrings SET last_seen ='" . $new_date . "' WHERE browserid =" . $rowCheck['browserid'];
                 $conn->query($sqlLastSeen);
-                return true;
+                $flag = false;
             }
         }
     }
     // CVSS intermediate case does not apply
-    return false;
+    $flag = true;
 }
 
 
-function privacyIntermediateCase() {
+function privacyIntermediateCase(&$flag) {
     $checkRow3 = "SELECT * FROM agentstrings 
     WHERE parent like'" . $colvals[1] . "' AND browser_bits=" . $colvals[2] . " AND platform LIKE '" . $colvals[3] .
         "' AND platform_description LIKE '" . $colvals[4] . "' AND platform_bits =" . $colvals[5] .
@@ -75,20 +75,21 @@ function privacyIntermediateCase() {
     if ($resultCheckRow3->num_rows > 0) { // intermediate case 2 new_privacy_score is zero
         echo "<h3>New privacy score is zero</h3>";
         require "privacy_score_intermediate_case.php";
-        return true;
+        $flag = false;
     }
     // Privacy intermediate case does not apply
-    return false;
+    $flag = true;
 }
 
-
-if (bestCase()) {
-    // best case
-} else if (cvssIntermediateCase()) {
-    // CVSS score intermediate case
-} else if (privacyIntermediateCase()) {
-    // Privacy score intermediate case
-} else {
+$flag = true;
+bestCase($flag);
+if ($flag) {
+    cvssIntermediateCase($flag);
+}
+if ($flag) {
+    privacyIntermediateCase($flag);
+}
+if ($flag) {
     echo "<h3>No match in the database and CVSS score is zero</h3>";
     require "worse_case.php";
 }
