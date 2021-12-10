@@ -7,7 +7,7 @@ $final_score = 0;
 
 // -----------------------------------------------------------------------------------
 
-function bestCase(&$flag, $colvals, &$final_score, $conn) {
+function bestCase($colvals, &$final_score, $conn) {
     $checkRow = "SELECT * FROM agentstrings 
     WHERE parent like'" . $colvals[1] . "' AND browser_bits=" . $colvals[2] . " AND platform LIKE '" . $colvals[3] .
         "' AND platform_description LIKE '" . $colvals[4] . "' AND platform_bits =" . $colvals[5] .
@@ -28,14 +28,14 @@ function bestCase(&$flag, $colvals, &$final_score, $conn) {
             $new_times_seen = $rowCheck['times_seen'] + 1;
             $sqlTimesSeen = "UPDATE agentstrings SET times_seen ='" . $new_times_seen ."' WHERE browserid =" . $rowCheck['browserid'];
             $conn->query($sqlTimesSeen);
-            $flag = false;
-	}
+            return false;
+	    }
     }
     // Best case does not apply
-    $flag = true;
+    return true;
 }
 
-function cvssIntermediateCase(&$flag, $colvals, &$final_score, $conn) {
+function cvssIntermediateCase($colvals, &$final_score, $conn) {
     $checkRow2 = "SELECT * FROM agentstrings 
     WHERE parent like'" . $colvals[1] . "' AND browser_bits=" . $colvals[2] . " AND platform LIKE '" . $colvals[3] .
         "' AND platform_description LIKE '" . $colvals[4] . "' AND platform_bits =" . $colvals[5] .
@@ -56,16 +56,16 @@ function cvssIntermediateCase(&$flag, $colvals, &$final_score, $conn) {
                 $new_date = date("Y-m-d h:m:s");
                 $sqlLastSeen = "UPDATE agentstrings SET last_seen ='" . $new_date . "' WHERE browserid =" . $rowCheck['browserid'];
                 $conn->query($sqlLastSeen);
-                $flag = false;
+                return false;
             }
         }
     }
     // CVSS intermediate case does not apply
-    $flag = true;
+    return true;
 }
 
 
-function privacyIntermediateCase(&$flag, $colvals, &$final_score, $conn) {
+function privacyIntermediateCase($colvals, &$final_score, $conn) {
     $checkRow3 = "SELECT * FROM agentstrings 
     WHERE parent like'" . $colvals[1] . "' AND browser_bits=" . $colvals[2] . " AND platform LIKE '" . $colvals[3] .
         "' AND platform_description LIKE '" . $colvals[4] . "' AND platform_bits =" . $colvals[5] .
@@ -76,21 +76,21 @@ function privacyIntermediateCase(&$flag, $colvals, &$final_score, $conn) {
     if ($resultCheckRow3->num_rows > 0) { // intermediate case 2 new_privacy_score is zero
         echo "<h3>New privacy score is zero</h3>";
         require "privacy_score_intermediate_case.php";
-        $flag = false;
+        return false;
     }
     // Privacy intermediate case does not apply
-    $flag = true;
+    return true;
 }
 
-$flag = true;
-bestCase($flag, $colvals, $final_score, $conn);
-if ($flag) {
-    cvssIntermediateCase($flag, $colvals, $final_score, $conn);
-}
-if ($flag) {
-    privacyIntermediateCase($flag, $colvals, $final_score, $conn);
-}
-if ($flag) {
+function worstCase($colvals, &$final_score, $conn) {
     echo "<h3>No match in the database and CVSS score is zero</h3>";
     require "worse_case.php";
+}
+
+if (bestCase($colvals, $final_score, $conn)) {
+    if (cvssIntermediateCase($colvals, $final_score, $conn)) {
+        if (privacyIntermediateCase($colvals, $final_score, $conn)) {
+            worstCase($colvals, $final_score, $conn);  
+        }
+    }
 }
