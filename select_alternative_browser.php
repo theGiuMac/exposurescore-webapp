@@ -19,7 +19,7 @@ echo "<h4>Alternative Browsers Selected:</h4>";
 $browsers = array();
 if ($result1->num_rows > 0) {
     while ($row = $result1->fetch_assoc()) {
-        if $counter > 5 or $row['browser'] in $browsers {
+        if ($counter > 5 or $row['browser'] in $browsers) {
             continue;
         }
         array_push($browsers, $row['browser']); 
