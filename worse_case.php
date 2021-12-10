@@ -117,12 +117,9 @@ if ($result > 0) {
 // }
 // ------------------------------------------------------------------------------------ End CVE Result -----------------------------
 // -------- get total of rows in our database ---
-$sqlAgent = "SELECT DISTINCT 'browser' FROM agentstrings";
-$resultAgent = $conn->query($sqlAgent);
-$totalRows = 0;
-if ($resultAgent->num_rows > 0) {
-    $totalRows = mysqli_num_rows($resultAgent);
-}
+$sqlAgent = "SELECT COUNT(DISTINCT browser) FROM agentstrings";
+$totalRows = $conn->query($sqlAgent);
+
 echo "<pre>" . $totalRows . "</pre>";
 // ---------- define the constants our needed ---
 // attribute_name
