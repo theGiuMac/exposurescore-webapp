@@ -222,12 +222,12 @@ if ($result_MAX_MIN->num_rows > 0) {
          $max = $result_M['b'];
          if ($min > $score) {
              $min = $score;
-         } else {
+         } else if ($max < $score) {
              $max = $score;
          }
      }
 }
-// $score = round(((($score - $min) / ($max - $min)) * 10), 2);
+$score = ((($score - $min) / ($max - $min)) * 10);
 $colvals[49] = $score;
 
 $tdate = date("Y-m-d h:m:s");
