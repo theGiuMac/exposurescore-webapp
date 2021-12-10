@@ -117,6 +117,9 @@ if ($result > 0) {
 // }
 // ------------------------------------------------------------------------------------ End CVE Result -----------------------------
 
+$sqlAgent = "SELECT COUNT(*) FROM useragents";
+$totalRows = $conn->query($sqlAgent);
+
 // ---------- define the constants our needed ---
 // attribute_name
 $Item = array(
@@ -135,8 +138,6 @@ $Null = array(
 $Unique = array(
     16, 116, 15, 11, 3735, 1385, 9, 581, 1189, 118, 166, 4161, 4, 2, 2, 2, 2, 2, 3, 15, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 99, 87, 4, 87, 34, 2304, 2457, 189, 192, 2, 9, 7, 2
 );
-$totalRows = $Unique[5];
-echo "<pre>" . $totalRows . "</pre>";
 $Sj = array_fill(0, 47, 0.0); // SJ = 1/Unique
 $SofJ = array_fill(0, 47, 0.0); // SofJ =((totalRows-abs((totalRows-Null)))/totalRows)
 $Vj = array_fill(0, 47, 0.0); // Vj = Visibility_Constant
@@ -144,6 +145,7 @@ $RoverJ = array_fill(0, 47, 0.0); // RoverJ = totalRows-Null
 $RoverJmodN = array_fill(0, 47, 0.0); // RoverJmodN = RoverJ/totalRows
 //-----------------------------------------------------------------------------------
 $totalRows = $totalRows + 1;
+echo "<pre>" . $totalRows . "</pre>";
 // calculate Sj :
 for ($i = 0; $i < 47; $i++) {
     $Sj[$i] = (1 / $Unique[$i]);
