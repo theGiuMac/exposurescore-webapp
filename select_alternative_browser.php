@@ -22,7 +22,7 @@ if ($result1->num_rows > 0) {
         if $counter > 5 or $row['browser'] in $browsers {
             continue;
         }
-        array_push($browsers, $row['browser']) 
+        array_push($browsers, $row['browser']); 
         echo "<h5> $counter. " .
             $row['browser'] . " " . $row['version'] . " "  . $row['browser_bits'] .
             " bit for " . $row['platform'] . " " . $row['platform_bits'] . " bit | Total Score: <b id ='scoreColor'>" . ($row['new_privacy_score'] + $row['cvss_score']) . "</b>"
