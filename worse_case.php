@@ -123,6 +123,7 @@ $totalRows = 0;
 if ($resultAgent->num_rows > 0) {
     $totalRows = mysqli_num_rows($resultAgent);
 }
+print($totalRows)
 // ---------- define the constants our needed ---
 // attribute_name
 $Item = array(
