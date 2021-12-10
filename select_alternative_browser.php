@@ -18,6 +18,10 @@ echo "<pre>" . $result1->num_rows . "</pre>";
 $browsers = array();
 if ($result1->num_rows > 0) {
     while ($row = $result1->fetch_assoc()) {
+        if (in_array($row['browser'], $browsers)) {
+            --$counter;
+            continue;
+        }
         if ($counter > 5 or in_array($row['browser'], $browsers)) {
             continue;
         }
