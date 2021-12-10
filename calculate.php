@@ -7,7 +7,7 @@ $final_score = 0;
 
 // -----------------------------------------------------------------------------------
 
-function bestCase(&$flag, $colvals, &$final_score) {
+function bestCase(&$flag, $colvals, &$final_score, $conn) {
     $checkRow = "SELECT * FROM agentstrings 
     WHERE parent like'" . $colvals[1] . "' AND browser_bits=" . $colvals[2] . " AND platform LIKE '" . $colvals[3] .
         "' AND platform_description LIKE '" . $colvals[4] . "' AND platform_bits =" . $colvals[5] .
@@ -34,7 +34,7 @@ function bestCase(&$flag, $colvals, &$final_score) {
     $flag = true;
 }
 
-function cvssIntermediateCase(&$flag, $colvals, &$final_score) {
+function cvssIntermediateCase(&$flag, $colvals, &$final_score, $conn) {
     $checkRow2 = "SELECT * FROM agentstrings 
     WHERE parent like'" . $colvals[1] . "' AND browser_bits=" . $colvals[2] . " AND platform LIKE '" . $colvals[3] .
         "' AND platform_description LIKE '" . $colvals[4] . "' AND platform_bits =" . $colvals[5] .
@@ -64,7 +64,7 @@ function cvssIntermediateCase(&$flag, $colvals, &$final_score) {
 }
 
 
-function privacyIntermediateCase(&$flag, $colvals, &$final_score) {
+function privacyIntermediateCase(&$flag, $colvals, &$final_score, $conn) {
     $checkRow3 = "SELECT * FROM agentstrings 
     WHERE parent like'" . $colvals[1] . "' AND browser_bits=" . $colvals[2] . " AND platform LIKE '" . $colvals[3] .
         "' AND platform_description LIKE '" . $colvals[4] . "' AND platform_bits =" . $colvals[5] .
@@ -82,12 +82,12 @@ function privacyIntermediateCase(&$flag, $colvals, &$final_score) {
 }
 
 $flag = true;
-bestCase($flag, $colvals, $final_score);
+bestCase($flag, $colvals, $final_score, $conn);
 if ($flag) {
-    cvssIntermediateCase($flag, $colvals, $final_score);
+    cvssIntermediateCase($flag, $colvals, $final_score, $conn);
 }
 if ($flag) {
-    privacyIntermediateCase($flag, $colvals, $final_score);
+    privacyIntermediateCase($flag, $colvals, $final_score, $conn);
 }
 if ($flag) {
     echo "<h3>No match in the database and CVSS score is zero</h3>";
