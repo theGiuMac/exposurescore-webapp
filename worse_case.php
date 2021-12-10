@@ -216,18 +216,18 @@ $MAX_MIN = "SELECT MIN(new_privacy_score) as a ,MAX(new_privacy_score) as b FROM
 $result_MAX_MIN = $conn->query($MAX_MIN);
 $min = 0;
 $max = $score;
-// if ($result_MAX_MIN->num_rows > 0) {
-//     while ($result_M = $result_MAX_MIN->fetch_assoc()) {
-//         $score = round($score, 2);
-//         $min = $result_M['a'];
-//         $max = $result_M['b'];
-//         if ($min > $score) {
-//             $min = $score;
-//         } else {
-//             $max = $score;
-//         }
-//     }
-// }
+if ($result_MAX_MIN->num_rows > 0) {
+     while ($result_M = $result_MAX_MIN->fetch_assoc()) {
+         $score = round($score, 2);
+         $min = $result_M['a'];
+         $max = $result_M['b'];
+         if ($min > $score) {
+             $min = $score;
+         } else {
+             $max = $score;
+         }
+     }
+}
 $score = round(((($score - $min) / ($max - $min)) * 10), 2);
 $colvals[49] = $score;
 
