@@ -116,9 +116,6 @@ if ($result > 0) {
 //     // echo "<br>No Result...<br>";
 // }
 // ------------------------------------------------------------------------------------ End CVE Result -----------------------------
-// -------- get total of rows in our database ---
-$sqlAgent = "SELECT COUNT(SELECT DISTINCT agentstrings.browser FROM agentstrings) FROM agentstrings";
-$totalRows = $conn->query($sqlAgent);
 
 echo "<pre>" . $totalRows . "</pre>";
 // ---------- define the constants our needed ---
@@ -139,6 +136,7 @@ $Null = array(
 $Unique = array(
     16, 116, 15, 11, 3735, 1385, 9, 581, 1189, 118, 166, 4161, 4, 2, 2, 2, 2, 2, 3, 15, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 99, 87, 4, 87, 34, 2304, 2457, 189, 192, 2, 9, 7, 2
 );
+$totalRows = $Unique[5];
 $Sj = array_fill(0, 47, 0.0); // SJ = 1/Unique
 $SofJ = array_fill(0, 47, 0.0); // SofJ =((totalRows-abs((totalRows-Null)))/totalRows)
 $Vj = array_fill(0, 47, 0.0); // Vj = Visibility_Constant
