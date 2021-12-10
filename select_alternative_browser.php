@@ -8,7 +8,7 @@ $stmt1 = "SELECT distinct `parent`, `browser_bits`, `platform`, `platform_descri
 `ismodified`, `privacy_score`, `new_privacy_score` , `cvss_score` FROM agentstrings
 WHERE browser_bits=$colvals[2] and platform_bits=$colvals[5] and browser_type like '$colvals[18]' and device_type like '$colvals[29]' 
 and platform_maker like '$colvals[6]' and platform_description like '$colvals[4]' and privacy_score < $colvals[48] 
-AND ((new_privacy_score + cvss_score) < $final_score) and `version` not like '0.0' and cvss_score < 5 ORDER BY cvss_score DESC, new_privacy_score DESC, version DESC limit 10";
+AND ((new_privacy_score + cvss_score) < $final_score) and `version` not like '0.0' ORDER BY cvss_score DESC, new_privacy_score DESC, version DESC limit 10";
 
 $counter = 1;
 $result1 = $conn->query($stmt1);
