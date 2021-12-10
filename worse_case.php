@@ -145,7 +145,7 @@ $RoverJ = array_fill(0, 47, 0.0); // RoverJ = totalRows-Null
 $RoverJmodN = array_fill(0, 47, 0.0); // RoverJmodN = RoverJ/totalRows
 //-----------------------------------------------------------------------------------
 $totalRows = $totalRows + 1;
-echo "<pre>" . $totalRows . "</pre>";
+// echo "<pre>" . $totalRows . "</pre>";
 // calculate Sj :
 for ($i = 0; $i < 47; $i++) {
     $Sj[$i] = (1 / $Unique[$i]);
