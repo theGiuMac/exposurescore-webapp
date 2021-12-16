@@ -5,6 +5,8 @@ $rows = $conn->query($rows_query);
 
 $num_of_nulls = array_fill(0, 47, 0);
 
+echo "<pre> Arrives here </pre>";
+
 // Iterate over each database entry, i.e. over each browser
 $num_rows = 0;
 while ($row = $rows->fetch_array(MYSQLI_ASSOC)) {
@@ -203,6 +205,8 @@ while ($row = $rows->fetch_array(MYSQLI_ASSOC)) {
 	$num_rows++;
 }
 
+echo "<pre> After nulls loop </pre>";
+
 for ($idx=0; $idx < 47; $idx++) {
 	$update_nulls_query = "UPDATE attributes SET num_nulls = '" . $num_of_nulls[$idx] . "' WHERE attributeid = '" . ($idx + 1) . "'";
 	$nulls_result = $conn->query($update_nulls_query);
@@ -221,6 +225,8 @@ for ($idx=0; $idx < 47; $idx++) {
 	$update_rjovern_query = "UPDATE attributes SET rjovern = '" . $rjovern . "' WHERE attributeid = '" . ($idx + 1) . "'";
 	$rjovern_result = $conn->query($update_rjovern_query);
 }
+
+echo "<pre> After other symbols loop </pre>";
 
 $num_rows_query = "SELECT COUNT(*) FROM agentstrings";
 $num_rows_tot = $conn->query($num_rows_query);
