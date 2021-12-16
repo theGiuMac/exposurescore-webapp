@@ -45,12 +45,13 @@ $cols = array(
     "isfake",
     "isanonymized",
     "ismodified",
-    "privacy_score",
+    "num_of_exposed_attributes",
+    "unnormalized_score",
     "new_privacy_score"
 );
 $types = array(
     "i", "v", "i", "v", "v", "i", "v", "f", "v", "v", "v", "v",
     "v", "v", "v", "v", "v", "v", "v", "v", "v", "v", "f", "f", "f", "f", "f", "f",
     "i", "v", "v", "v", "v", "v", "f", "f", "f", "f", "f", "f", "f", "f", "f", "f", "f", "f",
-    "f", "f", "i", "f"
+    "f", "f", "i", "f", "f"
 );

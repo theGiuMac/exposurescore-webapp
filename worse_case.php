@@ -117,8 +117,9 @@ if ($result > 0) {
 // }
 // ------------------------------------------------------------------------------------ End CVE Result -----------------------------
 
-$sqlAgent = "SELECT COUNT(SELECT * FROM useragents) FROM useragents";
-$totalRows = $conn->query($sqlAgent);
+$sqlAgent = "SELECT COUNT(*) FROM agentstrings";
+$totalRows_result = $conn->query($sqlAgent);
+$totalRows = $totalRows_result->fetch_array()[0];
 
 // ---------- define the constants our needed ---
 // attribute_name
@@ -130,10 +131,17 @@ $Item = array(
 $Visibility_Constant = array(
     1, 1, 1, 1, 0.5, 0.33, 1, 0.25, 0.33, 0.5, 0.5, 0.5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.33, 0.33, 0.33, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.33, 0.33, 1, 1, 1, 0.5, 0.5, 0.5, 0.5, 0.33, 0.33, 0.33, 1
 );
+
 // num_nulls
-$Null = array(
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 70133, 70133, 70133, 70133, 70133, 0, 0, 1001404, 992225, 1001531, 661563, 661563, 669403, 669403, 669403, 1001327, 988295, 1001565, 1000694, 999103, 474825, 0, 0, 0, 0, 0, 0, 0, 0, 0, 599392, 0, 0, 942524
-);
+$null_query = "SELECT num_nulls FROM attributes";
+$null_result = $conn->query($null_query);
+$Null = array_fill(0, 47, 0);
+$count = 0;
+while ($null_value = $null_result->fetch_array(MYSQLI_NUM)) {
+    $Null[$count] = $null_value[0];
+    $count++;
+}
+
 // num_uniques
 $Unique = array(
     16, 116, 15, 11, 3735, 1385, 9, 581, 1189, 118, 166, 4161, 4, 2, 2, 2, 2, 2, 3, 15, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 99, 87, 4, 87, 34, 2304, 2457, 189, 192, 2, 9, 7, 2
@@ -151,22 +159,24 @@ for ($i = 0; $i < 47; $i++) {
     $Sj[$i] = (1 / $Unique[$i]);
 }
 //-------------------------------------------------
-// calculate Vi :
+// calculate Vj :
 for ($i = 0; $i < 47; $i++) {
     $Vj[$i] = $Visibility_Constant[$i];
 }
 //-------------------------------------------------
-// calculate SofI :
+// calculate SofJ :
 for ($i = 0; $i < 47; $i++) {
     // $SofJ[$i] = (($totalRows - ($totalRows - $Null[$i])) / $totalRows);
-    $SofJ[$i] = (($totalRows - abs(($totalRows - $Null[$i]))) / $totalRows);
+    $diff = $totalRows - $Null[$i];
+    $SofJ[$i] = (($totalRows - $diff) / $totalRows);
 
     // why total rows and not n, the number of browsers?
 }
 //-------------------------------------------------
 // calculate RoverJ :
 for ($i = 0; $i < 47; $i++) {
-    $RoverJ[$i] = ($totalRows - $Null[$i]);
+    $diff = $totalRows - $Null[$i];
+    $RoverJ[$i] = $diff;
 }
 //-------------------------------------------------
 // calculate RoverJmodN :
@@ -196,30 +206,37 @@ $attributes = "SELECT * FROM attributes";
 $result_att = $conn->query($attributes);
 $key = array_keys($colvals);
 $score = 0;
+echo "<pre> num_rows = " . $result_att->num_rows . "</pre>";
 if ($result_att->num_rows > 0) {
     $count = 0;
     while ($rowatt = $result_att->fetch_assoc()) {
-    //while($count != 
         if ($colvals[$count] == -1 || $colvals[$count] == "unknown") {
+            $nulls_update_query = "UPDATE attributes SET num_nulls = '" . ($rowatt['num_nulls']+1) . "' WHERE attributeid = '" . $count . "'";
+            $nulls_update_result = $conn->query($nulls_update_query);
             $score += 0;
         } else {
-            $score += (($rowatt["sofj"] + $rowatt["sj"]) * (($rowatt["rjovern"] + ($colvals[48] / 47)) + $rowatt["vj"]));
+            $score += (($rowatt["sofj"] + $rowatt["sj"]) * (($rowatt["rjovern"] * ($colvals[48] / 47)) + $rowatt["vj"]));
         }
         $count++;
     }
 }
 // $score = abs($score);
-// echo "Score : $score <br>";
+echo "<pre>Score : $score <br></pre>";
 
-$MAX_MIN = "SELECT MIN(new_privacy_score) as a ,MAX(new_privacy_score) as b FROM agentstrings";
+$unnormalized = round($score, 3);
+
+$MAX_MIN = "SELECT MIN(unnormalized_score) as min ,MAX(unnormalized_score) as max FROM agentstrings";
 $result_MAX_MIN = $conn->query($MAX_MIN);
 $min = 0;
 $max = $score;
 if ($result_MAX_MIN->num_rows > 0) {
+    echo "<pre> Found min and max </pre>";
      while ($result_M = $result_MAX_MIN->fetch_assoc()) {
-         $score = round($score, 2);
-         $min = $result_M['a'];
-         $max = $result_M['b'];
+         $score = round($score, 3);
+         $min = $result_M['min'];
+         $max = $result_M['max'];
+         echo "<pre> min: $min </pre>";
+         echo "<pre> max: $max </pre>";
          if ($min > $score) {
              $min = $score;
          } else if ($max < $score) {
@@ -228,6 +245,7 @@ if ($result_MAX_MIN->num_rows > 0) {
      }
 }
 $score = ((($score - $min) / ($max - $min)) * 10);
+$score = round($score, 2);
 $colvals[49] = $score;
 
 $tdate = date("Y-m-d h:m:s");
@@ -242,11 +260,11 @@ $sqlNewRow = "INSERT into agentstrings(parent, browser_bits, platform, platform_
     renderingengine_description, renderingengine_maker, comments, browser, browser_type, browser_maker, `version`, majorver, frames, 
     iframes, tabless, cookies, javascript, ismobiledevice, cssversion, device_type, device_pointing_method, browser_modus, minorver, 
     platform_version, alpha, beta, win16, win32, win64, backgroundsounds, vbscript, activexcontrols, istablet, issyndicationreader, 
-    crawler, isfake, isanonymized, ismodified, privacy_score, new_privacy_score,cvss_score,checkCVSS,time_privacy_score,time_cvss_score,last_seen,num_of_vuln, full_UA, UA_length, times_seen) 
+    crawler, isfake, isanonymized, ismodified, num_of_exposed_attributes, new_privacy_score,cvss_score,checkCVSS,time_privacy_score,time_cvss_score,last_seen,num_of_vuln, full_UA, UA_length, times_seen, unnormalized_score) 
     values('$colvals[1]','$colvals[2]','$colvals[3]','$colvals[4]','$colvals[5]','$colvals[6]','$colvals[7]','$colvals[8]','$colvals[9]',
     '$colvals[10]','$colvals[11]', '$colvals[12]','$colvals[13]','$colvals[14]','$colvals[15]','$colvals[16]','$colvals[17]','$colvals[18]',
     '$colvals[19]','$colvals[20]','$colvals[21]', '$colvals[22]','$colvals[23]','$colvals[24]','$colvals[25]','$colvals[26]','$colvals[27]',
     '$colvals[28]','$colvals[29]','$colvals[30]','$colvals[31]', '$colvals[32]','$colvals[33]','$colvals[34]','$colvals[35]','$colvals[36]',
     '$colvals[37]','$colvals[38]','$colvals[39]','$colvals[40]','$colvals[41]', '$colvals[42]','$colvals[43]','$colvals[44]','$colvals[45]',
-    '$colvals[46]','$colvals[47]','$colvals[48]','$colvals[49]',$totalCVE,1,'$tdate','$tdate','$tdate','$num_of_vuln', '$useragent', $UA_length, 1)";
+    '$colvals[46]','$colvals[47]','$colvals[48]','$colvals[49]',$totalCVE,1,'$tdate','$tdate','$tdate','$num_of_vuln', '$useragent', $UA_length, 1, $unnormalized)";
 $conn->query($sqlNewRow);

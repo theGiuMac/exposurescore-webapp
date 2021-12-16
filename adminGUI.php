@@ -47,6 +47,28 @@
                 x.style.display = "none";
             }
         }
+
+        function updateNulls() {
+            var a = document.getElementById("nulls").innerText;
+            if (a == null || a == "") {
+                var x = document.getElementById("updateNulls");
+                x.style.display = "block";
+            } else {
+                var x = document.getElementById("updateNulls");
+                x.style.display = "none";
+            }
+        }
+
+        function updateRelativeUn() {
+            var a = document.getElementById("rels").innerText;
+            if (a == null || a == "") {
+                var x = document.getElementById("updateUnRel");
+                x.style.display = "block";
+            } else {
+                var x = document.getElementById("updateUnRel");
+                x.style.display = "none";
+            }
+        }
     </script>
 
 </head>
@@ -87,7 +109,9 @@
 
     #attribute,
     #cvss,
-    #UA {
+    #UA,
+    #NumNulls,
+    #UnRel {
         max-width: 100%;
         border-left: 1px solid;
         border-right: 1px solid;
@@ -223,6 +247,43 @@
                     <?php
                     if (isset($_POST["UA"])) {
                         require "add_New_UA_toDB.php";
+                    }
+                    ?>
+                </div>
+            </div>
+
+        </div>
+        <div id="NumNulls">
+            <h5>Update numbers of null attributes:</h5>
+            <div id="resultNulls">
+                <form method="post" enctype="multipart/form-data">
+                    <input id="nav_id" type="submit" onclick="updateNulls()" name="NumNulls" value="Update attribute table" class="btn btn-secondary btn-lg" />
+                    <br><br>
+                    <div class="loader" id="updateNulls"></div>
+                </form>
+                <div id="nulls">
+                    <?php
+                    if (isset($_POST["NumNulls"])) {
+                        require "update_Num_Nulls.php";
+                    }
+                    ?>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="UnRel">
+            <h5>Update unnormalized relative scores:</h5>
+            <div id="resultUnrel">
+                <form method="post" enctype="multipart/form-data">
+                    <input id="nav_id" type="submit" onclick="updateRelativeUn()" name="UnRel" value="Update unnormalized relative scores" class="btn btn-secondary btn-lg" />
+                    <br><br>
+                    <div class="loader" id="updateUnRel"></div>
+                </form>
+                <div id="rels">
+                    <?php
+                    if (isset($_POST["UnRel"])) {
+                        require "update_unnormalized_scores.php";
                     }
                     ?>
                 </div>
