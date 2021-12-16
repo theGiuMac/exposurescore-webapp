@@ -1,5 +1,8 @@
 <?php 
 
+
+require "connectionDB.php";
+
 $rows_query = "SELECT * FROM agentstrings";
 $rows = $conn->query($rows_query);
 
