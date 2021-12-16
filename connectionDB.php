@@ -6,7 +6,7 @@
 //$password = $cleardb_url["pass"];
 //$db = substr($cleardb_url["path"], 1);
 
-$servername = "localhost";
+$servername = "whatismyuseragent.xyz";
 $username = "giulio";
 $password = "indRSA!1!";
 $db = "useragents";
