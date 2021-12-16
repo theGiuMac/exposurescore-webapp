@@ -1,6 +1,6 @@
 Instructions for initial setup (running them overrides the current database state, so it is advised to first dump the main table (i.e. `agentstrings`) into a file using the exporting feature of phpmyadmin):
 
-1) Log in on the homepage of phpmyadmin @ whatismyuseragent.xyz/phpmyadmin
+1) Log in on the homepage of phpmyadmin @ [whatismyuseragent.xyz/phpmyadmin](https://whatismyuseragent.xyz/phpmyadmin)
 
 2) Open the SQL query box and run the following query:
         CREATE DATABASE useragents;
