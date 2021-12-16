@@ -9,7 +9,7 @@ echo "<pre> Arrives here </pre>";
 
 // Iterate over each database entry, i.e. over each browser
 $num_rows = 0;
-while ($row = $rows->fetch_array(MYSQLI_ASSOC)) {
+while ($row = mysqli_fetch_array($rows, MYSQLI_ASSOC)) {
 	
 	if (($row['renderingengine_name'] == "unknown") || ($row['renderingengine_name'] === NULL)) {
 		$num_of_nulls[0]++;
