@@ -10,7 +10,8 @@ function bestCase($colvals, &$final_score, $conn) {
 
     if ($resultCheckRow->num_rows > 0) { // this row is founded in the database
         if ($rowCheck = $resultCheckRow->fetch_assoc()) { // best case
-	        echo "<h3>Found a match in the database</h3>";
+	    //echo "<h3>Found a match in the database</h3>";
+            echo "<h3>We have seen your browser before! </h3>";
             $final_score = ($rowCheck['new_privacy_score'] + $rowCheck['cvss_score']);
             echo "<h3>Relative Score For Your Browser: " . $rowCheck['new_privacy_score'] . "</h3>";
             echo "<h3>CVSS Score For Your Browser: " . $rowCheck['cvss_score'] . "</h3>";
@@ -41,7 +42,7 @@ function cvssIntermediateCase($colvals, &$final_score, $conn) {
         $resultCheckRow = $conn->query($checkRow);
         if ($resultCheckRow->num_rows > 0) {
             if ($rowCheck = $resultCheckRow->fetch_assoc()) {
-	        echo "<h3>CVSS score is zero</h3>";
+	        //echo "<h3>CVSS score is zero</h3>";
                 $final_score = ($rowCheck['new_privacy_score'] + $rowCheck['cvss_score']);
                 echo "<h3>Relative Score For Your Browser: " . $rowCheck['new_privacy_score'] . "</h3>";
                 echo "<h3>CVSS Score For Your Browser: " . $rowCheck['cvss_score'] . "</h3>";
@@ -67,7 +68,7 @@ function privacyIntermediateCase($colvals, &$final_score, $conn) {
 
 
     if ($resultCheckRow3->num_rows > 0) { // intermediate case 2 new_privacy_score is zero
-        echo "<h3>New privacy score is zero</h3>";
+        // echo "<h3>New privacy score is zero</h3>";
         require "privacy_score_intermediate_case.php";
         return false;
     }
@@ -76,7 +77,8 @@ function privacyIntermediateCase($colvals, &$final_score, $conn) {
 }
 
 function worstCase($colvals, &$final_score, $conn, $useragent) {
-    echo "<h3>No match in the database and CVSS score is zero</h3>";
+    //echo "<h3>No match in the database and CVSS score is zero</h3>";
+    echo "<h3>Yours is a new browser for us!</h3>";
     require "worse_case.php";
 }
 
