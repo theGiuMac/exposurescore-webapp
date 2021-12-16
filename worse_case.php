@@ -206,7 +206,7 @@ $attributes = "SELECT * FROM attributes";
 $result_att = $conn->query($attributes);
 $key = array_keys($colvals);
 $score = 0;
-echo "<pre> num_rows = " . $result_att->num_rows . "</pre>";
+//echo "<pre> num_rows = " . $result_att->num_rows . "</pre>";
 if ($result_att->num_rows > 0) {
     $count = 0;
     while ($rowatt = $result_att->fetch_assoc()) {
@@ -220,8 +220,6 @@ if ($result_att->num_rows > 0) {
         $count++;
     }
 }
-// $score = abs($score);
-echo "<pre>Score : $score <br></pre>";
 
 $unnormalized = round($score, 3);
 
@@ -230,13 +228,13 @@ $result_MAX_MIN = $conn->query($MAX_MIN);
 $min = 0;
 $max = $score;
 if ($result_MAX_MIN->num_rows > 0) {
-    echo "<pre> Found min and max </pre>";
+    //echo "<pre> Found min and max </pre>";
      while ($result_M = $result_MAX_MIN->fetch_assoc()) {
          $score = round($score, 3);
          $min = $result_M['min'];
          $max = $result_M['max'];
-         echo "<pre> min: $min </pre>";
-         echo "<pre> max: $max </pre>";
+         //echo "<pre> min: $min </pre>";
+         //echo "<pre> max: $max </pre>";
          if ($min > $score) {
              $min = $score;
          } else if ($max < $score) {
