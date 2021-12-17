@@ -15,7 +15,7 @@ $num_rows = 0;
 
 while ($num_rows < $size) {
 
-	set_time_limit(120);
+	set_time_limit(60);
 
 	$row = $rows->fetch_array();
 
@@ -250,7 +250,7 @@ while ($done < $size) {
 
 	$row = $all_rows_result->fetch_array()
 
-	set_time_limit(120);
+	set_time_limit(60);
 
 	$attributes = "SELECT * FROM attributes";
 	$result_att = $conn->query($attributes);
