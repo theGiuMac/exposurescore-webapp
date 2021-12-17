@@ -251,6 +251,16 @@ echo "<h3>Relative Score For Your Browser: " . $colvals[49] . "/10</h3>";
 echo "<h3>CVSS Score For Your Browser: " . $totalCVE . "/10</h3>";
 $final_score = (round(($colvals[49] + $totalCVE), 2));
 echo "<h3>Final Score For Your Browser is: <span id='scoreColor'>" . $final_score . "</span>/20</h3>";
+echo "<table>
+                      <tr>
+                          <th>Vulnerabilities</th>
+                          <th>Exposed attributes</th>
+                       </tr>
+                       <tr>
+                           <td>" . $rowCheck['num_of_vuln'] . "</td>
+                           <td>" . $rowCheck['num_of_exposed_attributes'] . "/47</td>
+                        </tr>
+                   </table>"; 
 // echo "<h3>Updated: " . $tdate . "</h3>";
 $UA_length = strlen($useragent);
 $sqlNewRow = "INSERT into agentstrings(parent, browser_bits, platform, platform_description, platform_bits, platform_maker, 
