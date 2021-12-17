@@ -25,6 +25,9 @@ function bestCase($colvals, &$final_score, $conn) {
             $new_times_seen = $rowCheck['times_seen'] + 1;
             $sqlTimesSeen = "UPDATE agentstrings SET times_seen ='" . $new_times_seen ."' WHERE browserid =" . $rowCheck['browserid'];
             $conn->query($sqlTimesSeen);
+
+            echo "<table><tr><th>Number of vulnerabilities</th><th>Exposed attributes</th></tr><tr><td>'" . $rowCheck['num_of_vuln'] . "'</td><td>'" . $rowCheck['num_of_exposed_attributes'] . "'/47</td></tr></table>"; 
+
             return false;
 	    }
     }
