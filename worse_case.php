@@ -257,8 +257,8 @@ echo "<table>
                           <th>Exposed attributes</th>
                        </tr>
                        <tr>
-                           <td>" . $rowCheck['num_of_vuln'] . "</td>
-                           <td>" . $rowCheck['num_of_exposed_attributes'] . "/47</td>
+                           <td>" . $num_of_vuln . "</td>
+                           <td>" . $colvals[48] . "/47</td>
                         </tr>
                    </table>"; 
 // echo "<h3>Updated: " . $tdate . "</h3>";
