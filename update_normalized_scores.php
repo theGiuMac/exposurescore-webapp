@@ -20,8 +20,9 @@ function update_normalized($conn, $score, $browserid) {
 $min_max_query = "SELECT MAX(unnormalized_score) AS max, MIN(unnormalized_score) AS min FROM agentstrings";
 $min_max_result = $conn->query($min_max_query);
 
-$min = $min_max_result['min'];
-$max = $min_max_result['max'];
+$min_max = $min_max_result->fetch_array();
+$min = $min_max['min'];
+$max = $min_max['max'];
 
 $all_rows_query = "SELECT * FROM agentstrings";
 $all_rows_result = $conn->query($all_rows_query);
