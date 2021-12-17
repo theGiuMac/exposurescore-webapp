@@ -70,8 +70,9 @@
             }
         }
     </script>
-
+    
 </head>
+
 <style>
     body {
         background-color: #d7e3eb;
@@ -169,6 +170,7 @@
         <div id="nav">
             <h6><a class="text-dark" href="adminGUI.php">Home: Admin</a></h6>
         </div>
+
         <div id="attribute">
             <div id="lastUpdate">
                 <?php
@@ -190,14 +192,17 @@
             <div id="resultAtt">
                 <?php
                 if (isset($_POST['update'])) {
-                    require "attributeCalculation.php";
-                    echo "<br><h4>Updating successfully was done for <span style='color:red;'>$totalRows</span> rows, in $time_privacy_score</h4>";
+                    
+                    require "update_Num_Nulls.php";
+                    require "update_unnormalized_scores.php";
+                    require "update_normalized_scores.php";
 
+                    echo "<br><h4>Updating successfully was done for <span style='color:red;'>$totalRows</span> rows, in $time_privacy_score</h4>";
                 }
                 ?>
             </div>
-
         </div>
+
         <div id="cvss">
             <div id="lastUpdate">
                 <?php
@@ -232,6 +237,7 @@
                 ?>
             </div>
         </div>
+
         <div id="UA">
             <h5>Add New AgentStrings:</h5>
             <div id="resultAdd">
@@ -251,45 +257,8 @@
                     ?>
                 </div>
             </div>
-
-        </div>
-        <div id="NumNulls">
-            <h5>Update numbers of null attributes:</h5>
-            <div id="resultNulls">
-                <form method="post" enctype="multipart/form-data">
-                    <input id="nav_id" type="submit" onclick="updateNulls()" name="NumNulls" value="Update attribute table" class="btn btn-secondary btn-lg" />
-                    <br><br>
-                    <div class="loader" id="updateNulls"></div>
-                </form>
-                <div id="nulls">
-                    <?php
-                    if (isset($_POST["NumNulls"])) {
-                        require "update_Num_Nulls.php";
-                    }
-                    ?>
-                </div>
-            </div>
-
         </div>
 
-        <div id="UnRel">
-            <h5>Update unnormalized relative scores:</h5>
-            <div id="resultUnrel">
-                <form method="post" enctype="multipart/form-data">
-                    <input id="nav_id" type="submit" onclick="updateRelativeUn()" name="UnRel" value="Update unnormalized relative scores" class="btn btn-secondary btn-lg" />
-                    <br><br>
-                    <div class="loader" id="updateUnRel"></div>
-                </form>
-                <div id="rels">
-                    <?php
-                    if (isset($_POST["UnRel"])) {
-                        require "update_unnormalized_scores.php";
-                    }
-                    ?>
-                </div>
-            </div>
-
-        </div>
         <!-- Footer -->
         <footer class="bg-light text-center text-lg-start" id="footer1">
             <div class="text-center p-3" style="background-color: #d7e3eb;">

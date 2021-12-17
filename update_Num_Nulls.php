@@ -217,10 +217,12 @@ while ($num_rows < $size) {
 //echo "<pre> After nulls loop </pre>";
 
 for ($idx=0; $idx < 47; $idx++) {
+
+	// update num_nulls
 	$update_nulls_query = "UPDATE attributes SET num_nulls = '" . $num_of_nulls[$idx] . "' WHERE attributeid = '" . ($idx + 1) . "'";
 	$nulls_result = $conn->query($update_nulls_query);
 
-	// calculate SofJ :
+	// calculate and update SofJ :
 	$diff = $num_rows - $num_of_nulls[$idx];
 	$sofj = (($num_rows - $diff) / $num_rows);
 	$update_sofj_query = "UPDATE attributes SET sofj = '" . $sofj . "' WHERE attributeid = '" . ($idx + 1) . "'";
@@ -229,7 +231,7 @@ for ($idx=0; $idx < 47; $idx++) {
 	// calculate RoverJ (needed for the next calculation) :
 	$roverj = $diff;
 
-	// calculate RoverJmodN :
+	// calculate and update RoverJmodN :
 	$rjovern = ($roverj / $num_rows);
 	$update_rjovern_query = "UPDATE attributes SET rjovern = '" . $rjovern . "' WHERE attributeid = '" . ($idx + 1) . "'";
 	$rjovern_result = $conn->query($update_rjovern_query);
