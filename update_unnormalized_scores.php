@@ -5,18 +5,14 @@ $all_rows_result = $conn->query($all_rows_query);
 
 $totalRows = $all_rows_result->num_rows;
 
+echo "<pre> Arrives here </pre>";
+
 $done = 0;
-while ($row = $all_rows_result->fetch_array(MYSQLI_BOTH)) {
+while ($done < $totalRows) {
+
+	$row = $all_rows_result->fetch_array()
 
 	set_time_limit(120);
-
-	if ($done == $totalRows / 4) {
-		echo "<pre> 1/4 is updated ... </pre>";
-	} else if ($done == $totalRows / 2) {
-		echo "<pre> 2/4 is updated ... </pre>";
-	} else if ($done == ($totalRows / 4 * 3)) {
-		echo "<pre> 3/4 is updated ... </pre>";
-	}
 
 	//-----------------------------------------------------------------------------------
 	$attributes = "SELECT * FROM attributes";
@@ -27,7 +23,7 @@ while ($row = $all_rows_result->fetch_array(MYSQLI_BOTH)) {
 	    $count = 0;
 	    while ($rowatt = $result_att->fetch_assoc()) {
 	    //while($count != 
-	        if ($row[$count] == -1 || $row[$count] == "unknown" || $row[$count] === Null) {
+	        if ($row[$count] == -1 || $row[$count] == "unknown" || $row[$count] === NULL) {
 	            $score += 0;
 	        } else {
 	            $score += (($rowatt["sofj"] + $rowatt["sj"]) * (($rowatt["rjovern"] * ($num_of_exposed_attributes / 47)) + $rowatt["vj"]));
@@ -44,6 +40,6 @@ while ($row = $all_rows_result->fetch_array(MYSQLI_BOTH)) {
 	$done++;
 }
 
-echo "<pre> Update complete! </pre>";
+echo "<pre> Unnormalized are done </pre>";
 
 ?>

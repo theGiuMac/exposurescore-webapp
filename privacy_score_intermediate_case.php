@@ -119,7 +119,7 @@ $resultCheckRow3 = $conn->query($checkRow3); // intermediate case 2
 $resultCheckRow3 = $conn->query($checkRow);
 if ($resultCheckRow3->num_rows > 0) {
     if ($rowCheck = $resultCheckRow3->fetch_assoc()) {
-        echo "<h3>" . "Final Score For Your Browser: <span id='scoreColor'>" . ($rowCheck['new_privacy_score'] + $rowCheck['cvss_score']) . "</span></h3>";
+        echo "<h3>" . "Final Score For Your Browser: <span id='scoreColor'>" . ($rowCheck['new_privacy_score'] + $rowCheck['cvss_score']) . "</span>/20</h3>";
         echo "<h3>" . $rowCheck['time_privacy_score'] . "</h3>";
         if ($rowCheck['last_seen'] == null) { // print today time
             $sqlLastSeen = "UPDATE agentstrings SET last_seen ='" . date("Y-m-d h:m:s") . "' WHERE browserid =" . $rowCheck['browserid'];

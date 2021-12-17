@@ -13,13 +13,15 @@ function bestCase($colvals, &$final_score, $conn) {
 	    //echo "<h3>Found a match in the database</h3>";
             echo "<h3>We have seen your browser before! </h3>";
             $final_score = ($rowCheck['new_privacy_score'] + $rowCheck['cvss_score']);
-            echo "<h3>Relative Score For Your Browser: " . $rowCheck['new_privacy_score'] . "</h3>";
-            echo "<h3>CVSS Score For Your Browser: " . $rowCheck['cvss_score'] . "</h3>";
-            echo "<h3>" . "Final Score For Your Browser: <span id='scoreColor'>" . $final_score . "</span></h3>";
+            echo "<h3>Relative Score For Your Browser: " . $rowCheck['new_privacy_score'] . "/10</h3>";
+            echo "<h3>CVSS Score For Your Browser: " . $rowCheck['cvss_score'] . "/10</h3>";
+            echo "<h3>" . "Final Score For Your Browser: <span id='scoreColor'>" . $final_score . "</span>/20</h3>";
             echo "<h5>Last Update In: " . $rowCheck['time_privacy_score'] . "</h5>";
             $new_date = date("Y-m-d h:m:s");
+            
             $sqlLastSeen = "UPDATE agentstrings SET last_seen ='" . $new_date . "' WHERE browserid =" . $rowCheck['browserid'];
             $conn->query($sqlLastSeen);
+
             $new_times_seen = $rowCheck['times_seen'] + 1;
             $sqlTimesSeen = "UPDATE agentstrings SET times_seen ='" . $new_times_seen ."' WHERE browserid =" . $rowCheck['browserid'];
             $conn->query($sqlTimesSeen);
@@ -44,9 +46,9 @@ function cvssIntermediateCase($colvals, &$final_score, $conn) {
             if ($rowCheck = $resultCheckRow->fetch_assoc()) {
 	        //echo "<h3>CVSS score is zero</h3>";
                 $final_score = ($rowCheck['new_privacy_score'] + $rowCheck['cvss_score']);
-                echo "<h3>Relative Score For Your Browser: " . $rowCheck['new_privacy_score'] . "</h3>";
-                echo "<h3>CVSS Score For Your Browser: " . $rowCheck['cvss_score'] . "</h3>";
-                echo "<h3>" . "Final Score For Your Browser: <span id='scoreColor'>" . $final_score . "</span></h3>";
+                echo "<h3>Relative Score For Your Browser: " . $rowCheck['new_privacy_score'] . "/10</h3>";
+                echo "<h3>CVSS Score For Your Browser: " . $rowCheck['cvss_score'] . "/10</h3>";
+                echo "<h3>" . "Final Score For Your Browser: <span id='scoreColor'>" . $final_score . "</span>/20</h3>";
                 echo "<h3>" . $rowCheck['time_privacy_score'] . "</h3>";
                 $new_date = date("Y-m-d h:m:s");
                 $sqlLastSeen = "UPDATE agentstrings SET last_seen ='" . $new_date . "' WHERE browserid =" . $rowCheck['browserid'];

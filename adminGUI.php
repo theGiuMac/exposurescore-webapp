@@ -174,7 +174,7 @@
         <div id="attribute">
             <div id="lastUpdate">
                 <?php
-                $sqllastUp_privacy = "select time_privacy_score from agentstrings";
+                $sqllastUp_privacy = "SELECT time_privacy_score FROM agentstrings ORDER BY time_privacy_score DESC";
                 $resultlastUp = $conn->query($sqllastUp_privacy);
                 if ($resultlastUp->num_rows > 0) {
                     if ($lastUp = $resultlastUp->fetch_assoc()) {
@@ -210,7 +210,7 @@
         <div id="cvss">
             <div id="lastUpdate">
                 <?php
-                $sqllastUp_cvss = "select time_cvss_score from agentstrings";
+                $sqllastUp_cvss = "SELECT time_cvss_score FROM agentstrings ORDER BY time_cvss_score DESC";
                 $resultlastUp = $conn->query($sqllastUp_cvss);
                 if ($resultlastUp->num_rows > 0) {
                     if ($lastUp = $resultlastUp->fetch_assoc()) {
