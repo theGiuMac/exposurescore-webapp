@@ -170,19 +170,19 @@
                 if (isset($_POST['update'])) {
                     $attributes_pass = require("./update_Num_Nulls.php");
                     if ($attributes_pass == True) {
-                        $unnormalized_pass = require("./update_unnormalized_scores.php");
-                        if ($unnormalized_pass == True) {
-                            $normalized_pass = require("./update_normalized_scores.php");
-                            if ($normalized_pass == True) {
-                                echo "<pre>All relative scores were update successfully</pre>";
-                            } else {
-                                echo "<pre>There was a problem with updating the normalized scores</pre>";
-                            }
-                        } else {
-                            echo "<pre>There was a problem with updating the unnormalized scores</pre>";
-                        }
+                        //$unnormalized_pass = require("./update_unnormalized_scores.php");
+                        //if ($unnormalized_pass == True) {
+                        //    $normalized_pass = require("./update_normalized_scores.php");
+                        //    if ($normalized_pass == True) {
+                        echo "<pre>All relative scores were update successfully</pre>";
+                        //    } else {
+                        //        echo "<pre>There was a problem with updating the normalized scores</pre>";
+//                            }
+                        //} else {
+                        //    echo "<pre>There was a problem with updating the unnormalized scores</pre>";
+                        //}
                     } else {
-                        echo "<pre>There was a problem with updating the attributes</pre>";
+                        echo "<pre>There was a problem with updating the scores!</pre>";
                     }
                 }
                 ?>
