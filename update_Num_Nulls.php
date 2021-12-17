@@ -10,6 +10,7 @@ $num_of_nulls = array_fill(0, 47, 0);
 
 // Iterate over each database entry, i.e. over each browser
 $num_rows = 0;
+
 while ($num_rows < $size) {
 
 	set_time_limit(120);

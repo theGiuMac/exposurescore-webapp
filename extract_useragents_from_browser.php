@@ -37,8 +37,8 @@ foreach ($info as $heading => $value) {
         $colvals[$pos] = $value;
     }
     $colvals[0] = null;
-    $colvals[48] = 47 - $numofnulls;
-    // echo "<tr><td><b>$heading</b></td><td><pre>$value</pre></td><td><pre>$pos</pre></td></tr>";
-    // echo "<tr><td><b>$heading</b></td><td><pre>$value</pre></td></tr>";
+    
+    // this was `privacy_score`, now is `num_of_exposed_attributes`
+    $colvals[48] = 47 - $numofnulls;    
 }
 
