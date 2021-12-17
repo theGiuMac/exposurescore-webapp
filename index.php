@@ -64,7 +64,7 @@
             width: 150px;
             text-align: center;
             border: 1px solid black;
-            padding: 5px;
+            padding: 10px;
         }
       }
     </style>
