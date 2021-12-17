@@ -34,6 +34,9 @@ $totalRows = $all_rows_result->num_rows;
 // For each broswer, normalize and update its relative score
 for ($count=0; $count < $totalRows; $count++) {
 
+	// Allow 1 minute for each computation
+	set_time_limit(60);
+
 	// Get each browser's row
 	$row = $all_rows_result->fetch_array();
 

@@ -70,7 +70,7 @@
             }
         }
     </script>
-    
+
 </head>
 
 <style>
@@ -194,10 +194,14 @@
                 if (isset($_POST['update'])) {
                     
                     require "update_Num_Nulls.php";
+                    echo "<pre>Attribute table updated successfully</pre>";
+
                     require "update_unnormalized_scores.php";
+                    echo "<pre>Unnormalized scores were updated successfully</pre>";
+
                     require "update_normalized_scores.php";
 
-                    echo "<br><h4>Updating successfully was done for <span style='color:red;'>$totalRows</span> rows, in $time_privacy_score</h4>";
+                    echo "<pre>All relative scores were update successfully</pre>";
                 }
                 ?>
             </div>
