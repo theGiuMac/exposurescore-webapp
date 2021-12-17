@@ -168,6 +168,7 @@
             <div id="resultAtt">
                 <?php
                 if (isset($_POST['update'])) {
+                    echo "<pre>Post is set.</pre>";
                     $attributes_pass = require("./update_Num_Nulls.php");
                     if ($attributes_pass == True) {
                         //$unnormalized_pass = require("./update_unnormalized_scores.php");
