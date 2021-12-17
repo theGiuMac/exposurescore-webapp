@@ -167,6 +167,8 @@
             <div class="loader" id="loadAtt"></div>
             <div id="resultAtt">
                 <?php
+                ini_set('display_errors', 1);
+                error_reporting(-1);
                 if (isset($_POST['update'])) {
                     require "./update_Num_Nulls.php";
                 }
