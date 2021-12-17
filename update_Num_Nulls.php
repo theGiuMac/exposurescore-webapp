@@ -241,5 +241,5 @@ for ($idx=0; $idx < 47; $idx++) {
 
 $num_rows_query = "SELECT COUNT(*) FROM agentstrings";
 $num_rows_tot = $conn->query($num_rows_query);
-echo "<pre> Update completed successfully! </pre>";
-echo "<pre> Total number of browsers: " . $num_rows_tot->fetch_array()[0] . "</pre>";
+
+
