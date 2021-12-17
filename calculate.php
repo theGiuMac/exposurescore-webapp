@@ -28,7 +28,7 @@ function bestCase($colvals, &$final_score, $conn) {
 
             echo "<table>
                       <tr>
-                          <th>Number of vulnerabilities</th>
+                          <th>Vulnerabilities</th>
                           <th>Exposed attributes</th>
                        </tr>
                        <tr>
