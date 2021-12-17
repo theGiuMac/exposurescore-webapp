@@ -1,6 +1,6 @@
 <?php 
 
-require "./connectionDB.php";
+echo "<pre> OK </pre>";
 
 $rows_query = "SELECT * FROM agentstrings";
 $rows = $conn->query($rows_query);
