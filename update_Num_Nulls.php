@@ -214,7 +214,7 @@ while ($num_rows < $size) {
 	$num_rows++;
 }
 
-//echo "<pre> After nulls loop </pre>";
+echo "<pre> After nulls loop </pre>";
 
 for ($idx=0; $idx < 47; $idx++) {
 
@@ -238,9 +238,6 @@ for ($idx=0; $idx < 47; $idx++) {
 }
 
 //echo "<pre> After other symbols loop </pre>";
-
-$num_rows_query = "SELECT COUNT(*) FROM agentstrings";
-$num_rows_tot = $conn->query($num_rows_query);
 
 // ----------------------- UNNORMALIZED SECTION ------------------------
 
