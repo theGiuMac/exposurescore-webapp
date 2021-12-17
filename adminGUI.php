@@ -192,13 +192,13 @@
             <div id="resultAtt">
                 <?php
                 if (isset($_POST['update'])) {
-                    $attributes_pass = require("update_Num_Nulls.php");
+                    $attributes_pass = require("./update_Num_Nulls.php");
                     if ($attributes_pass == True) {
                         echo "<pre>Attribute table updated successfully</pre>";
-                        $unnormalized_pass = require("update_unnormalized_scores.php");
+                        $unnormalized_pass = require("./update_unnormalized_scores.php");
                         if ($unnormalized_pass == True) {
                             echo "<pre>Unnormalized scores were updated successfully</pre>";
-                            $normalized_pass = require("update_normalized_scores.php");
+                            $normalized_pass = require("./update_normalized_scores.php");
                             if ($normalized_pass == True) {
                                 echo "<pre>All relative scores were update successfully</pre>";
                             }
