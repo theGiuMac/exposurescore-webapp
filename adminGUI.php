@@ -47,28 +47,6 @@
                 x.style.display = "none";
             }
         }
-
-        function updateNulls() {
-            var a = document.getElementById("nulls").innerText;
-            if (a == null || a == "") {
-                var x = document.getElementById("updateNulls");
-                x.style.display = "block";
-            } else {
-                var x = document.getElementById("updateNulls");
-                x.style.display = "none";
-            }
-        }
-
-        function updateRelativeUn() {
-            var a = document.getElementById("rels").innerText;
-            if (a == null || a == "") {
-                var x = document.getElementById("updateUnRel");
-                x.style.display = "block";
-            } else {
-                var x = document.getElementById("updateUnRel");
-                x.style.display = "none";
-            }
-        }
     </script>
 
 </head>
@@ -110,9 +88,7 @@
 
     #attribute,
     #cvss,
-    #UA,
-    #NumNulls,
-    #UnRel {
+    #UA {
         max-width: 100%;
         border-left: 1px solid;
         border-right: 1px solid;
