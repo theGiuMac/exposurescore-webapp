@@ -10,6 +10,10 @@ function normalize($min, $max, $score) {
 function update_normalized($conn, $score, $browserid) {
 	$score_update_query = "UPDATE agentstrings SET new_privacy_score = '" . $score . "' WHERE browserid = '" . $browserid . "'";
 	$score_update_result = $conn->query($score_update_query);
+
+	$time_privacy_score = date("Y-m-d h:m:s");
+	$time_update_query = "UPDATE agentstrings SET time_privacy_score = '" . $time_privacy_score . "' WHERE browserid = '" . $browserid . "'";
+	$time_update_result = $conn->query($time_update_query);
 }
 
 // Find minimum and maximum for normalizing the relative scores
