@@ -243,6 +243,9 @@ for ($idx=0; $idx < 47; $idx++) {
 
 // ----------------------- UNNORMALIZED SECTION ------------------------
 
+$all_rows_query = "SELECT * FROM agentstrings";
+$all_rows_result = $conn->query($all_rows_query);
+
 echo "<pre> Arrives here </pre>";
 
 $done = 0;
