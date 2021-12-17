@@ -1,11 +1,9 @@
 <?php
 
-$sqlAgent = "SELECT COUNT(*) FROM agentstrings";
-$totalRows_result = $conn->query($sqlAgent);
-$totalRows = $totalRows_result->fetch_array()[0];
-
 $all_rows_query = "SELECT * FROM agentstrings";
 $all_rows_result = $conn->query($all_rows_query);
+
+$totalRows = $all_rows_result->num_rows;
 
 $done = 0;
 while ($row = $all_rows_result->fetch_array(MYSQLI_BOTH)) {
