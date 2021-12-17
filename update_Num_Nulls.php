@@ -1,18 +1,23 @@
 <?php 
 
-
-require "connectionDB.php";
-
 $rows_query = "SELECT * FROM agentstrings";
 $rows = $conn->query($rows_query);
 
-$num_of_nulls = array_fill(0, 47, 0);
+$size = $rows->num_rows;
+//echo "<pre> Size: '" . $size . "'</pre>";
 
-echo "<pre> Arrives here </pre>";
+$num_of_nulls = array_fill(0, 47, 0);
 
 // Iterate over each database entry, i.e. over each browser
 $num_rows = 0;
-while ($row = mysqli_fetch_array($rows, MYSQLI_ASSOC)) {
+while ($num_rows < $size) {
+
+	set_time_limit(120);
+
+	$row = $rows->fetch_array();
+
+	$row_els = sizeof($row);
+	//echo "<pre> '" . $row_els . "'</pre>";
 	
 	if (($row['renderingengine_name'] == "unknown") || ($row['renderingengine_name'] === NULL)) {
 		$num_of_nulls[0]++;
@@ -30,7 +35,7 @@ while ($row = mysqli_fetch_array($rows, MYSQLI_ASSOC)) {
 		$num_of_nulls[3]++;
 	}
 
-	if (($row['comments'] == "unknown") || ($row['comments'] === NULL)) {
+	if (($row['comments'] == 0) || ($row['comments'] === NULL)) {
 		$num_of_nulls[4]++;
 	}
 
@@ -208,7 +213,7 @@ while ($row = mysqli_fetch_array($rows, MYSQLI_ASSOC)) {
 	$num_rows++;
 }
 
-echo "<pre> After nulls loop </pre>";
+//echo "<pre> After nulls loop </pre>";
 
 for ($idx=0; $idx < 47; $idx++) {
 	$update_nulls_query = "UPDATE attributes SET num_nulls = '" . $num_of_nulls[$idx] . "' WHERE attributeid = '" . ($idx + 1) . "'";
@@ -229,7 +234,7 @@ for ($idx=0; $idx < 47; $idx++) {
 	$rjovern_result = $conn->query($update_rjovern_query);
 }
 
-echo "<pre> After other symbols loop </pre>";
+//echo "<pre> After other symbols loop </pre>";
 
 $num_rows_query = "SELECT COUNT(*) FROM agentstrings";
 $num_rows_tot = $conn->query($num_rows_query);
