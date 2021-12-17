@@ -248,7 +248,7 @@ echo "<pre> Arrives here </pre>";
 $done = 0;
 while ($done < $size) {
 
-	$row = $all_rows_result->fetch_array()
+	$row = $all_rows_result->fetch_array();
 
 	set_time_limit(60);
 
