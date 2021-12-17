@@ -4,7 +4,7 @@ $rows_query = "SELECT * FROM agentstrings";
 $rows = $conn->query($rows_query);
 
 $size = $rows->num_rows;
-//echo "<pre> Size: '" . $size . "'</pre>";
+echo "<pre> Size: '" . $size . "'</pre>";
 
 $num_of_nulls = array_fill(0, 47, 0);
 
