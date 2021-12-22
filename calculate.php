@@ -5,7 +5,7 @@ function bestCase($colvals, &$final_score, $conn) {
     $checkRow = "SELECT * FROM agentstrings 
     WHERE parent like'" . $colvals[1] . "' AND browser_bits=" . $colvals[2] . " AND platform LIKE '" . $colvals[3] .
         "' AND platform_description LIKE '" . $colvals[4] . "' AND platform_bits =" . $colvals[5] .
-        " AND platform_maker LIKE '" . $colvals[6] . "' AND new_privacy_score != 0 AND checkCVSS != 0 OR full_UA ='" . $useragent . "'";
+        " AND platform_maker LIKE '" . $colvals[6] . "' AND new_privacy_score != 0 AND checkCVSS != 0 AND full_UA ='" . $useragent . "'";
     $resultCheckRow = $conn->query($checkRow); // best case
 
     if ($resultCheckRow->num_rows > 0) { // this row is founded in the database
