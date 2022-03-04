@@ -42,3 +42,11 @@ foreach ($info as $heading => $value) {
     $colvals[48] = 47 - $numofnulls;    
 }
 
+if (strpos($useragent, 'Instagram') !== false) {
+    $pos = strpos($useragent, 'Instagram');
+    //echo $pos;
+    $version = substr($useragent, $pos + 10, 15);
+    $colvals[20] = $version;
+}
+
+
