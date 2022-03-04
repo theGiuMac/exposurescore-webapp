@@ -7,7 +7,7 @@
 //$db = substr($cleardb_url["path"], 1);
 
 $servername = "localhost";
-$username = "giulio";
+$username = "giulio1";
 $password = "indRSA!1!";
 $db = "useragents";
 

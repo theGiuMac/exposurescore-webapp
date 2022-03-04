@@ -69,7 +69,7 @@
     <footer class="bg-light text-center text-lg-start">
         <div class="text-center p-3" id="footer">
             © 2021 Copyright:
-            <a class="text-dark" href="./index.php">Graduation Project</a>
+            <a class="text-dark" href="./index.php">Research Project</a>
         </div>
     </footer>
 

@@ -5,7 +5,7 @@
     <script>
         var _umb = {
             require: {
-                chrome: 93,
+                chrome: 97,
                 safari: 14,
                 edge: 93,
                 firefox: 91,
@@ -40,6 +40,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585Ach69TLBQObG" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="./newstyle.css">
+
     <script>
         function loadCalc() {
             var a = document.getElementById("resultCalc").innerText;
@@ -77,9 +78,11 @@
 <body>
     <ul style="margin-bottom: 10px; text-align: center;">
         <a class="nav-link active" aria-current="page" href="./index.php">
-            <img src="./logo1.png" alt="Logo">
+          <img src="./logo1.png" alt="Logo">
         </a>
     </ul>
+
+
 
     <div class="container" id="div1_top">
         <h3 style="text-align: center;">What is my User-Agent?</h3>
@@ -149,10 +152,18 @@
             </div>
         </div>
     </div>
+
+    <ul style="margin-top: 100px; margin-bottom: 25px; text-align: center;">
+        <a class="nav-link active" aria-current="page" href="./analyitics.php">
+            <h3 style="color:black;"><b>Analytics</b></h3>
+        </a>
+    </ul>
+
+
     <footer class="bg-light text-center text-lg-start">
         <div class="text-center p-3" id="footer">
             © 2021 Copyright:
-            <a class="text-dark" href="./index.php">Graduation Project</a>
+            <a class="text-dark" href="./index.php">Research Project</a>
         </div>
     </footer>
 
