@@ -9,7 +9,7 @@
     window.document.onload = function(e) {
         $.ajax({
             type: 'POST',
-            url: './api.php',
+            url: 'api.php',
             datatype: 'json',
             success: function (result) {
                 var ctx = document.getElementById("chart").getContext("2d");
