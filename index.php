@@ -154,7 +154,7 @@
     </div>
 
     <ul style="margin-top: 100px; margin-bottom: 25px; text-align: center;">
-        <a class="nav-link active" aria-current="page" href="./analyitics.php">
+        <a class="nav-link active" aria-current="page" href="./analytics.php">
             <h3 style="color:black;"><b>Analytics</b></h3>
         </a>
     </ul>
