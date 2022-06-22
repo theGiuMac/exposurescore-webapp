@@ -15,10 +15,11 @@
             contentType: 'application/json',
             success: function (response) {
                 var ctx = document.getElementById("chart").getContext("2d");
+                var respons = response;
                 var mychart = new Chart(ctx,
                                         {
                                             type: 'bar',
-                                            data: JSON.parse(response),
+                                            data: respons,
                                             options: {
                                                 scales: {
                                                     yAxes: [{
