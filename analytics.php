@@ -3,6 +3,17 @@
   <head>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0/dist/chart.min.js" integrity="sha256-cHVO4dqZfamRhWD7s4iXyaXWVK10odD+qp4xidFzqTI=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <style>
+      .firstgraph {
+        background-color: black;
+        color: white;
+        border: 2px solid green;
+        margin: 20px;
+        padding: 20px;
+      }
+    </style>
+
   </head>
 
   <body>
@@ -21,10 +32,47 @@
                                             type: 'bar',
                                             data: respons,
                                             options: {
+                                                legend: {
+                                                    display: true,
+                                                    position: 'top',
+                                                    fontColor: 'white',
+                                                    fontSize: 20,
+                                                    labels: {
+                                                        fontColor: 'white',
+                                                        fontSize: 20
+                                                    }
+                                                },
+                                                responsive: true,
                                                 scales: {
                                                     yAxes: [{
+                                                        stacked: false,
+                                                        scaleLabel: {
+                                                            display: true,
+                                                            fontColor: 'white',
+                                                            fontSize: 25,
+                                                            labelString: 'Exposure Scores'
+                                                        },
                                                         ticks: {
-                                                            beginAtZero: true
+                                                            fontColor: 'white',
+                                                            fontSize: 20,
+                                                            min: 0
+                                                        },
+                                                        gridLines: {
+                                                            color: 'white'
+                                                        }
+                                                    }],
+                                                    xAxes: [{
+                                                        stacked: false,
+                                                        scaleLabel: {
+                                                            display: true,
+                                                            fontColor: 'white',
+                                                            fontSize: 25,
+                                                            labelString: 'Browser'
+                                                        },
+                                                        ticks: {
+                                                            fontColor: 'white',
+                                                            fontSize: 20,
+                                                            min: 0
                                                         }
                                                     }]
                                                 }
@@ -37,7 +85,12 @@
         })
     })
     </script>
+
     <h3>Analytics section</h3>
-    <canvas id="chart" width="300" height="300"></canvas>
+    
+    <div class="firstgraph">
+      <!-- Interactive graph for the browser identifiers and normalized exposure score -->
+      <canvas id="chart" width="300" height="300"></canvas>
+    </div>
   </body>
 </html>
