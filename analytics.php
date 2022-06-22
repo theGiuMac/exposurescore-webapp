@@ -6,7 +6,7 @@
 
   <body>
     <script language='javascript'>
-    window.document.onload = function(e) {
+    window.addEventListener('load', function() {
         $.ajax({
             type: 'POST',
             url: 'api.php',
@@ -28,8 +28,11 @@
                                             }
                                         })
             }
+            error: function(jqXHR, textStatus, errorThrown) {
+                alert('error');
+            }
         })
-    }
+    })
     </script>
     <h3>Analytics section</h3>
     <canvas id="chart" width="300" height="300"></canvas>
