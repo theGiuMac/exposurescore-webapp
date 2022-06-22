@@ -30,6 +30,7 @@
   </head>
 
   <body>
+    <h3>Analytics section</h3>
     <canvas id="chart" width="300" height="300"></canvas>
   </body>
 </html>
