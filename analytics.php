@@ -35,7 +35,7 @@
                 var labels = respons.labels
                 var datasets = respons.datasets
                 console.log(labels)
-                console.log(datasets[0])
+                console.log(datasets[0].data)
                 var mychart = new Chart(ctx,
                                         {
                                             type: 'bar',
@@ -43,7 +43,7 @@
                                                 labels: labels,
                                                 datasets: [{
                                                     label: 'Exposure Scores',
-                                                    data: datasets[0],
+                                                    data: datasets[0].data,
                                                     backgroundColor: 'green',
                                                     borderColor: 'black',
                                                     borderWidth: 1
