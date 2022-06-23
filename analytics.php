@@ -42,8 +42,8 @@
                                                 datasets: [{
                                                     label: 'Exposure Scores',
                                                     data: data,
-                                                    backgroundColor: green,
-                                                    borderColor: black,
+                                                    backgroundColor: 'green',
+                                                    borderColor: 'black',
                                                     borderWidth: 1
                                                 }]
                                             },
