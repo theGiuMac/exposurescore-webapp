@@ -5,7 +5,7 @@ window.addEventListener('load', function() {
         dataType: 'json',
         contentType: 'application/json',
         success: function (response) {
-            var ctx = document.getElementById("chart").getContext("2d");
+            var ctx = document.getElementById("bar-chart").getContext("2d");
             var respons = response;
             console.log(respons);
             var labels = respons.labels;

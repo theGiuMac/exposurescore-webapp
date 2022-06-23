@@ -13,6 +13,7 @@
 
     <aside>
       <div id="search">
+        <p>Search  
         <input id="btnSearch" type="button" value="Search" />
         <input type="text" name="txtSearch" id="txtSearch" />
       </div>
@@ -21,7 +22,7 @@
     <div id="container" class="container" style="display: block;">
       <div class="firstgraph">
         <!-- Interactive graph for the browser identifiers and normalized exposure score -->
-        <canvas id="chart"></canvas>
+        <canvas id="bar-chart"></canvas>
       </div>
       <div class="secondgraph">
         <canvas id=""></canvas>
