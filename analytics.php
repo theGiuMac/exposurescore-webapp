@@ -9,7 +9,7 @@
   </head>
 
   <body>
-    <h1 style="font-size: 10vw">Analytics section</h1>
+    <h1 style="font-size: 6vw">Analytics section</h1>
 
     <aside>
       <div id="search">
