@@ -41,7 +41,7 @@ canvas {
 .firstgraph {
     float: left;
     width: 60%;
-    max-width: 505px;
+    max-width: 540px;
     min-width: 0;
     background-color: transparent;
     border: 5px solid black;
@@ -51,7 +51,7 @@ canvas {
 .secondgraph {
     float: right;
     width: 60%;
-    max-width: 505px;
+    max-width: 540px;
     min-width: 0;
     background-color: transparent;
     border: 5px solid black;
