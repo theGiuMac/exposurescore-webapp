@@ -12,8 +12,8 @@ if ($stmt = $conn->prepare($query)) {
     $stmt->close();
 }
 
-// $datasets = array('label'=>"timer", 'data'=>$data);
-$data = array('labels'=>$labels, 'datasets'=> array($data));
+$datasets = array('label'=>"Exposure Score", 'data'=>$data);
+$data = array('labels'=>$labels, 'datasets'=> array($datasets));
 
 echo json_encode($data)
 ?>
