@@ -37,13 +37,9 @@
     padding: 20px;
 }
 
-#aside {
+#search {
     display: flex;
     flex-direction: row;
-}
-
-#search {
-    display: table;
     width: 20%;
 }
 
