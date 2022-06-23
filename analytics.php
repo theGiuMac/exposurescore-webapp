@@ -24,7 +24,7 @@
         bottom: auto;
       }
 
-      .firstgraph {
+     .firstgraph, .secondgraph {
         width: 50%;
         max-width: 485px;
         min-width: 0;
@@ -50,7 +50,6 @@
       </div>
 
       <div class="secondgraph">
-
         <canvas id=""></canvas>
       </div>
 
