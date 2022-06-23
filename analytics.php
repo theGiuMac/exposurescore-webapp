@@ -32,8 +32,8 @@
                 var ctx = document.getElementById("chart").getContext("2d");
                 var respons = response;
                 console.log(respons);
-                var labels = JSON.parse(respons.labels)
-                var data = JSON.parse(respons.datasets)
+                var labels = respons.labels
+                var data = respons.datasets
                 var mychart = new Chart(ctx,
                                         {
                                             type: 'bar',
