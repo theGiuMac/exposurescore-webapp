@@ -36,3 +36,25 @@
     border: 5px solid orange;
     padding: 20px;
 }
+
+#search {
+    display: table;
+    width: 20%;
+}
+
+label {
+    padding-right: 5px;
+}
+
+input: {
+    display: table-cell;
+    width: 15%;
+}
+
+label {
+    display: table-cell;
+    width: 5px;
+}
+
+
+
