@@ -6,10 +6,14 @@
 
     <style>
       .firstgraph {
-        background-color: black;
-        color: white;
-        border: 2px solid green;
-        margin: 20px;
+        position: relative;
+        width: 40%;
+        height: 40%;
+        left: 5%;
+        top: 5%;
+        background-color: transparent;
+        border: 5px solid green;
+        margin: 5%;
         padding: 20px;
       }
     </style>
