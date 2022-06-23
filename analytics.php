@@ -24,15 +24,25 @@
         bottom: auto;
       }
 
-     .firstgraph, .secondgraph {
-        width: 50%;
-        max-width: 485px;
-        min-width: 0;
-        background-color: transparent;
-        border: 5px solid green;
-        float: left;
-        padding: 20px;
-      }
+     .firstgraph {
+         float: left;
+         width: 50%;
+         max-width: 485px;
+         min-width: 0;
+         background-color: transparent;
+         border: 5px solid green;
+         padding: 20px;
+     }
+     
+     .secondgraph {
+         float: right;
+         width: 50%;
+         max-width: 485px;
+         min-width: 0;
+         background-color: transparent;
+         border: 5px solid orange;
+         padding: 20px;
+     }
     </style>
 
   </head>
