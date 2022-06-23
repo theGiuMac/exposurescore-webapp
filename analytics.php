@@ -19,7 +19,7 @@
       </div>
     </aside>
 
-    <hr width="3" size="500">
+    <hr width="3" size="500" style="display:inline-block">
 
     <div id="container" class="container" style="display: block;">
       <div class="firstgraph">
