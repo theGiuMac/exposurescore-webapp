@@ -39,6 +39,7 @@
 
 #search {
     display: flex;
+    float: left;
     flex-direction: row;
     width: 20%;
 }
@@ -54,13 +55,17 @@ label {
 }
 
 input: {
-    display: table-cell;
+    display: flex;
+    float: left;
+    flex-direction: row;
     width: 15%;
 }
 
 label {
-    display: table-cell;
-    width: 5px;
+    display: flex;
+    float: left;
+    flex-direction: row;
+    width: 50px;
 }
 
 
