@@ -31,6 +31,7 @@
             success: function (response) {
                 var ctx = document.getElementById("chart").getContext("2d");
                 var respons = response;
+                console.log(respons);
                 var mychart = new Chart(ctx,
                                         {
                                             type: 'bar',
