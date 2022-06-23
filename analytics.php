@@ -5,16 +5,30 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
     <style>
+      .container {
+        width: 100%;
+        max-width: 974px;
+        min-width: 0;
+        background-color: #f1f1f1;
+        box-shadow: 0 1px 3px
+                    rgba(0,0,0,0,12), 0 1px 2px
+                    rgba(0,0,0,0,24);
+        margin: auto;
+        margin-top: auto;
+        margin-bottom: auto;
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        right: 0;
+        height: auto;
+        bottom: auto;
+      }
+
       .firstgraph {
-        position: relative;
-        width: 40%;
-        height: 40%;
-        left: 5%;
-        top: 5%;
+        width: 50%;
         background-color: transparent;
         border: 5px solid green;
-        margin: 5%;
-        padding: 20px;
+        float: left;
       }
     </style>
 
@@ -105,10 +119,12 @@
     </script>
 
     <h3>Analytics section</h3>
-    
-    <div class="firstgraph">
-      <!-- Interactive graph for the browser identifiers and normalized exposure score -->
-      <canvas id="chart" width="300" height="300"></canvas>
+
+    <div id="container" class="container" style="display: block;">
+      <div class="firstgraph">
+        <!-- Interactive graph for the browser identifiers and normalized exposure score -->
+        <canvas id="chart" width="300" height="300"></canvas>
+      </div>
     </div>
   </body>
 </html>
