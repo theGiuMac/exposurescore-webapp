@@ -13,7 +13,6 @@
 
     <aside>
       <div id="search">
-        <p>Search  
         <input id="btnSearch" type="button" value="Search" />
         <input type="text" name="txtSearch" id="txtSearch" />
       </div>
