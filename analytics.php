@@ -34,6 +34,8 @@
                 console.log(respons);
                 var labels = respons.labels
                 var data = respons.datasets
+                console.log(labels)
+                console.log(data)
                 var mychart = new Chart(ctx,
                                         {
                                             type: 'bar',
