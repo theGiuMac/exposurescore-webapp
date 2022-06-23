@@ -19,9 +19,10 @@
       </div>
     </aside>
 
-    <hr width="3" size="500" style="display:inline-block">
 
     <div id="container" class="container" style="display: block;">
+      <hr width="3" size="500" style="display:inline-block">
+
       <div class="firstgraph">
         <!-- Interactive graph for the browser identifiers and normalized exposure score -->
         <canvas id="bar-chart"></canvas>
