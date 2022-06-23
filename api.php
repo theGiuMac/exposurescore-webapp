@@ -13,7 +13,7 @@ if ($stmt = $conn->prepare($query)) {
 }
 
 // $datasets = array('label'=>"timer", 'data'=>$data);
-$data_dict = array('labels'=>$labels, 'datasets'=> $data);
+$data = array('labels'=>$labels, 'datasets'=> array($data));
 
-echo json_encode($data_dict)
+echo json_encode($data)
 ?>
