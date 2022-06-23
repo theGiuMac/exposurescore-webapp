@@ -43,7 +43,7 @@
                                                 labels: labels,
                                                 datasets: [{
                                                     label: 'Exposure Scores',
-                                                    data: data[0],
+                                                    data: datasets[0],
                                                     backgroundColor: 'green',
                                                     borderColor: 'black',
                                                     borderWidth: 1
