@@ -35,7 +35,7 @@
                 var labels = respons.labels
                 var datasets = respons.datasets
                 console.log(labels)
-                console.log(datasets)
+                console.log(datasets[0])
                 var mychart = new Chart(ctx,
                                         {
                                             type: 'bar',
