@@ -6,7 +6,7 @@
     position: relative;
 }
 
-.h3 {
+h1 {
     font-family: Courier New;
     font-weight: 400;
     color: #03a1fc;
@@ -31,6 +31,10 @@
     right: 0;
     height: auto;
     bottom: auto;
+}
+
+canvas {
+    background-color: black;
 }
 
 .firstgraph {
