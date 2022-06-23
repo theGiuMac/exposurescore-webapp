@@ -19,6 +19,8 @@
       </div>
     </aside>
 
+    <hr width="3" size="500">
+
     <div id="container" class="container" style="display: block;">
       <div class="firstgraph">
         <!-- Interactive graph for the browser identifiers and normalized exposure score -->
