@@ -31,6 +31,7 @@ h1 {
     right: 0;
     height: auto;
     bottom: auto;
+    border-left: thick solid #03a1fc;
 }
 
 canvas {
