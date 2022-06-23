@@ -50,10 +50,6 @@
     }
 }
 
-label {
-    padding-right: 5px;
-}
-
 input: {
     display: flex;
     float: left;
@@ -61,12 +57,6 @@ input: {
     width: 15%;
 }
 
-label {
-    display: flex;
-    float: left;
-    flex-direction: row;
-    width: 50px;
-}
 
 
 

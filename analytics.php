@@ -14,7 +14,6 @@
     <aside>
       <div id="search">
         <input id="btnSearch" type="button" value="Search" />
-        <label for="txtSearch">Search</label>
         <input type="text" name="txtSearch" id="txtSearch" />
       </div>
     </aside>
