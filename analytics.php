@@ -9,14 +9,16 @@
 
   <body>
     <h3>Analytics section</h3>
+
+    <aside>
+      <div id="search">
+        <input id="btnSearch" type="button" value="Search" />
+        <label for="txtSearch">Search</label>
+        <input type="text" name="txtSearch" id="txtSearch" />
+      </div>
+    </aside>
+
     <div id="container" class="container" style="display: block;">
-      <aside>
-        <div id="search">
-          <input id="btnSearch" type="button" value="Search" />
-          <label for="txtSearch">Search</label>
-          <input type="text" name="txtSearch" id="txtSearch" />
-        </div>
-      </aside>
       <div class="firstgraph">
         <!-- Interactive graph for the browser identifiers and normalized exposure score -->
         <canvas id="chart"></canvas>
