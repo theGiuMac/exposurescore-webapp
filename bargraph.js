@@ -20,8 +20,8 @@ window.addEventListener('load', function() {
                                             datasets: [{
                                                 label: 'Exposure Scores',
                                                 data: datasets[0].data,
-                                                backgroundColor: 'green',
-                                                borderColor: 'black',
+                                                backgroundColor: 'rgb(3, 161, 252)',
+                                                borderColor: 'rgb(3, 44, 252)',
                                                 borderWidth: 1
                                             }]
                                         },
