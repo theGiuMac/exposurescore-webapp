@@ -29,7 +29,7 @@ $(document).ready(function(){
             dataType: 'json',
             data: { selected_attribute: selected_attribute,
                     info_limit: info_limit },
-            success: function (data, response) {
+            success: function (response) {
                 var ctx = document.getElementById("polar-chart").getContext("2d");
                 var respons = response;
                 console.log(respons);
