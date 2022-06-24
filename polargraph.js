@@ -10,6 +10,9 @@ $(document).ready(function(){
         var selected_attribute = $('#device-info').val();
         var info_limit = $('#device-info-limit').val();
 
+        console.log(selected_attribute);
+        console.log(info_limit);
+
         var background_colors = [];
         var border_colors = [];
         var hover_colors = [];

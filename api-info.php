@@ -8,9 +8,7 @@ include "./connectionDB.php";
 
 // Get values from the form in html to compose the SQL query
 $selected_attribute = $_POST['selected_attribute'];
-echo "<h1>" . $selected_attribute . "</h1>";
 $info_limit = $_POST['info_limit'];
-echo "<h1>" . $info_limit . "</h1>";
 $query = "SELECT " . $selected_attribute . ", COUNT(*) as count FROM agentstrings GROUP BY " . $selected_attribute . " ORDER BY count DESC LIMIT " . $info_limit;
 
 // Perform query after opening connection and store result in two arrays
