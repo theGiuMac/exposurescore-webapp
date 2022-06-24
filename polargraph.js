@@ -29,12 +29,14 @@ $(document).ready(function(){
             data: { selected_attribute: selected_attribute,
                     info_limit: info_limit },
             success: function (response) {
+                $("canvas#polar-chart").remove();
+                $("div.secondgraph").append('<canvas id="polar-cart" class="animated fadeIn"></canvas>');
                 var ctx = document.getElementById("polar-chart").getContext("2d");
                 var respons = response;
                 var response_string_init = response.replace('?', '');
                 var response_string_mid = response_string_init.replace('\n', '');
                 var response_string_res = response_string_mid.replace('>', '');
-                console.log(response_string_res);
+                // console.log(response_string_res);
                 var decoded = JSON.parse(response_string_res);
                 console.log(decoded);
                 var labels = decoded.labels;
