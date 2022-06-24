@@ -37,20 +37,19 @@ $(document).ready(function(){
                 var datasets = respons.datasets;
                 console.log(labels);
                 console.log(datasets[0].data);
+                data = {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Device info graph',
+                        data: datasets[0].data,
+                        backgroundColor: background_colors,
+                        hoverBackgroundColor: hover_colors,
+                    }]
+                };
                 var mychart = new Chart(ctx,
                                         {
+                                            data: data,
                                             type: 'polarArea',
-                                            data: {
-                                                labels: labels,
-                                                datasets: [{
-                                                    label: 'Device info graph',
-                                                    data: datasets[0].data,
-                                                    backgroundColor: background_colors,
-                                                    borderColor: border_colors,
-                                                    hoverBackgroundColor: hover_colors,
-                                                    borderWidth: 1
-                                                }]
-                                            },
                                             options: {
                                                 legend: {
                                                     display: true,
