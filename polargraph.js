@@ -27,7 +27,7 @@ $(document).ready(function(){
             type: 'POST',
             url: 'https://mybrowserscore.com/api-info.php',
             dataType: 'json',
-            data: { selected_attributes: selected_attribute,
+            data: { selected_attribute: selected_attribute,
                     info_limit: info_limit },
             success: function (data, response) {
                 var ctx = document.getElementById("polar-chart").getContext("2d");
