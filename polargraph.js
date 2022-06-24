@@ -31,8 +31,11 @@ $(document).ready(function(){
             success: function (response) {
                 var ctx = document.getElementById("polar-chart").getContext("2d");
                 var respons = response;
-                console.log(respons);
-                let decoded = JSON.parse(JSON.stringify(respons));
+                var response_string = JSON.stringify(respons);
+                response_string = response_string.substring(0, response_string.length - 2);
+                response_string = response_string.trim();
+                console.log(response_string);
+                let decoded = JSON.parse(response_string);
                 console.log(decoded);
                 var labels = decoded.labels;
                 var datasets = decoded.datasets;
