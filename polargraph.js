@@ -33,9 +33,9 @@ $(document).ready(function(){
                 var respons = response;
                 var response_string = JSON.stringify(respons);
                 response_string = response_string.substring(0, response_string.length - 2);
-                let response_string_res = response_string.trim();
+                var response_string_res = response_string.replace(/^\n|\n$/g, '');
                 console.log(response_string_res);
-                let decoded = JSON.parse(response_string_res);
+                var decoded = JSON.parse(response_string_res);
                 console.log(decoded);
                 var labels = decoded.labels;
                 var datasets = decoded.datasets;
