@@ -19,6 +19,6 @@ if ($conn->connect_error) {
     echo "<h1>$msg1</h1>";
     die("Connection failed: " . $conn->connect_error);
 }
-//echo "Connected successfully";
-$msg = "Connected successfully";
+echo "Connected successfully";
+//$msg = "Connected successfully";
 //echo "<h1>$msg</h1>";
