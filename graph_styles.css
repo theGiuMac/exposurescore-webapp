@@ -4,6 +4,7 @@
     max-width: 100%;
     overflow: hidden;
     position: relative;
+    box-sizing: border-box;
 }
 
 h1 {
@@ -13,24 +14,32 @@ h1 {
     background-color: black;
 }
 
+.menu {
+    float: left;
+    width: 20%;
+    text-align: center;
+}
+
+.menu section {
+    background-color: #074685;
+    padding: 8px;
+    margin-top: 7px;
+    display: block;
+    width: 100%;
+    color: white;
+}
+
 .container {
+    float: left;
     width: 95%;
     max-width: 1174px;
     min-width: 0;
+    padding: 0 20px;
     color: #03a1fc;
     background-color: black;
-    box-shadow: 0 1px 3px
-                rgba(0,0,0,0,12), 0 1px 2px
-                                    rgba(0,0,0,0,24);
     margin: 20px;
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: auto;
-    margin-right: auto;
     left: 0;
     right: 0;
-    height: auto;
-    bottom: auto;
     border-left: thick solid #03a1fc;
 }
 
@@ -66,9 +75,9 @@ canvas {
     margin: 20px;
 }
 
-@media screen and (max-width: 800px) {
-    .firstgraph, .secondgraph, #search {
-        width: 90%;
+@media screen and (max-width: 620px) {
+    .menu, .container, .firstgraph, .secondgraph {
+        width: 100%;
     }
 }
 

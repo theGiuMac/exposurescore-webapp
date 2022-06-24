@@ -12,7 +12,7 @@
   <body>
     <h1 style="font-size: 6vw">Analytics section</h1>
 
-    <aside id="sidebar">
+    <div class="menu">
       <section id="searchAttribute">
         <div id="search">
           <input id="btnSearch" type="button" value="Search" />
@@ -27,13 +27,13 @@
             <option value="device_type">Device type</option>
             <option value="device_maker">Device maker</option>
             <option value="device_brand_name">Device brand name</option>
-          </select>
+          </select><br>
           <label for="d-i-limit">Number of devices (between 3 and 15):</label>
           <input type="number" id="device-info-limit" name="d-i-limit" min="3" max="15">
           <input type="submit" id="show-graph" value="Show graph">
         </form>
       </section>
-    </aside>
+    </div>
 
 
     <div id="container" class="container" style="display: block;">
