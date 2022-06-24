@@ -26,7 +26,6 @@ $(document).ready(function(){
         jQuery.ajax({
             type: 'POST',
             url: 'https://mybrowserscore.com/api-info.php',
-            dataType: 'json',
             data: { selected_attribute: selected_attribute,
                     info_limit: info_limit },
             success: function (response) {
