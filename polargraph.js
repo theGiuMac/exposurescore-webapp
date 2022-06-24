@@ -32,6 +32,7 @@ $(document).ready(function(){
                 var ctx = document.getElementById("polar-chart").getContext("2d");
                 var respons = response;
                 console.log(respons);
+                console.log(length(respons));
                 let decoded = JSON.parse(JSON.stringify(respons));
                 var labels = decoded.labels;
                 var datasets = decoded.datasets;
