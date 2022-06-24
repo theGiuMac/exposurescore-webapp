@@ -12,7 +12,7 @@ $info_limit = $_POST['info_limit'];
 $query = "SELECT " . $selected_attribute . ", COUNT(*) as count FROM agentstrings GROUP BY " . $selected_attribute . " ORDER BY count DESC LIMIT " . $info_limit;
 
 // Perform query after opening connection and store result in two arrays
-if ($stmt = $conn->prepare(query)) {
+if ($stmt = $conn->prepare($query)) {
     $stmt->execute();
     $stmt->bind_result($attribute, $attribute_count);
     $labels = array();
