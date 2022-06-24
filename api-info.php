@@ -7,9 +7,9 @@ ini_set('display_errors', 1);
 include "./connectionDB.php";
 
 // Get values from the form in html to compose the SQL query
-$selected_attributes = $_POST['selected_attributes'];
+$selected_attribute = $_POST['selected_attribute'];
 $info_limit = $_POST['info_limit'];
-$query = "SELECT " . $selected_attributes . ", COUNT(*) as count FROM agentstrings GROUP BY " . $selected_attributes . " ORDER BY count DESC LIMIT " . $info_limit;
+$query = "SELECT " . $selected_attribute . ", COUNT(*) as count FROM agentstrings GROUP BY " . $selected_attribute . " ORDER BY count DESC LIMIT " . $info_limit;
 
 // Perform query after opening connection and store result in two arrays
 if ($stmt = $conn->prepare(query)) {
