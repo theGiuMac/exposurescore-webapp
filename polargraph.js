@@ -28,6 +28,8 @@ $(document).ready(function(){
             url: 'https://mybrowserscore.com/api-info.php',
             data: { selected_attribute: selected_attribute,
                     info_limit: info_limit },
+            dataType: 'json',
+            contentType: 'application/json',
             success: function (response) {
                 var ctx = document.getElementById("polar-chart").getContext("2d");
                 var respons = response;
