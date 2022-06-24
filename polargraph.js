@@ -22,14 +22,22 @@ $(document).ready(function(){
             border_colors[i] = color;
             hover_colors[i] = 'rgb(15, 255, 80)';
         }
-
         jQuery.ajax({
             type: 'POST',
             url: 'https://mybrowserscore.com/api-info.php',
             dataType: 'json',
             data: { selected_attribute: selected_attribute,
                     info_limit: info_limit },
-            success: function (data, response) {
+            success: function (data) {
+                console.log(data);
+            }
+        });
+
+        jQuery.ajax({
+            type: 'POST',
+            url: 'https://mybrowserscore.com/api-info.php',
+            dataType: 'json',
+            success: function (response) {
                 var ctx = document.getElementById("polar-chart").getContext("2d");
                 var respons = response;
                 console.log(respons);
