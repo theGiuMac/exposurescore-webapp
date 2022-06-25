@@ -26,9 +26,7 @@ div.menu {
     padding: 0 20px;
     color: #03a1fc;
     background-color: black;
-    margin: 20px;
-    left: 0;
-    right: 0;
+    margin-left: 25%;
     border-left: thick solid #03a1fc;
     box-sizing: border-box;
 }
