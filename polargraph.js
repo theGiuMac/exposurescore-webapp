@@ -29,7 +29,6 @@ $(document).ready(function(){
             data: { selected_attribute: selected_attribute,
                     info_limit: info_limit },
             success: function (response) {
-                $("canvas#1").remove();
                 $("canvas#polar-chart").remove();
                 $("div.secondgraph").append('<canvas id="polar-cart" class="animated fadeIn"></canvas>');
                 var ctx = document.getElementById("polar-chart").getContext("2d");
