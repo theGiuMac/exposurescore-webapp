@@ -158,7 +158,11 @@
         </div>
     </div>
 
-    <script type="text/javascript" src="visitors_queries.php?visitors=showon"></script>
+    <div id="visitors-counter">
+      <?php
+       require "./visitors_queries.php";
+       ?>
+    </div>
 
     <ul style="margin-top: 100px; margin-bottom: 25px; text-align: center;">
         <a class="nav-link active" aria-current="page" href="./analytics.php">

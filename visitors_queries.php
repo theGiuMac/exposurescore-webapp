@@ -34,5 +34,4 @@ if ($result->num_rows > 0) {
 $conn->close();
 
 $reout = '<div id="visitors"><h4>Visitors: ' . $nrvst . '</h4></div>';
-
-if (isset($_GET['visitors']) && $_GET['visitors'] == 'showon') $reout = "document.write('$reout');";
+echo $reout;
