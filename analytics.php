@@ -15,7 +15,7 @@
     <div class="menu">
       <section id="homeButton">
         <a href="https://mybrowserscore.com">
-          <img border="0" alt="HomePage" src="./logo1.png" width="100" heigth="100">
+          <img border="0" alt="HomePage" src="./logo1.png" width="250" heigth="250">
         </a>
       </section>
       <section id="searchAttribute">
