@@ -173,8 +173,8 @@
 
     <div id="sfcfaah9bke1fr1pm1m2a7jhf6mblh18541"></div>
     <script type="text/javascript" src="https://counter9.stat.ovh/private/counter.js?c=faah9bke1fr1pm1m2a7jhf6mblh18541&down=async" async></script>
-    <noscript><img src="https://counter9.stat.ovh/private/freecounterstat.php?c=faah9bke1fr1pm1m2a7jhf6mblh18541" border="0" title="web counter" alt="web counter"></noscript>
-    
+    <noscript><a href="https://www.freecounterstat.com" title="web counter"><img src="https://counter9.stat.ovh/private/freecounterstat.php?c=faah9bke1fr1pm1m2a7jhf6mblh18541" border="0" title="web counter" alt="web counter"></a></noscript>
+
 
     <ul style="margin-top: 100px; margin-bottom: 25px; text-align: center;">
         <a class="nav-link active" aria-current="page" href="./analytics.php">
