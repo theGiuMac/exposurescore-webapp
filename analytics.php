@@ -13,6 +13,11 @@
     <h1 style="font-size: 6vw">Analytics section</h1>
 
     <div class="menu">
+      <section id="homeButton">
+        <a href="https://mybrowserscore.com">
+          <img border="0" alt="HomePage" src="./logo1.png" width="100" heigth="100">
+        </a>
+      </section>
       <section id="searchAttribute">
         <div id="search">
           <input id="btnSearch" type="button" value="Search" />
