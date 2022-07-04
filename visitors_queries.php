@@ -16,10 +16,11 @@ if (!isset($_SESSION)) session_start();
 require "./connectionDB.php";
 
 $visitor = getRealIpAddr();
-$dt = 1;
-$nrvst = 0;
 
-$sqliu = "INSERT INTO `visitors` (`visitor`, `numVisits`) VALUES ('$visitor', $dt) ON DUPLICATE KEY UPDATE `numVisits`=$dt + 1";
+$sqlgetnrvst = "SELECT numVisits FROM `visitors` WHERE visitor = " . $visitor;
+$nrvst = $conn->query($sqlgetnrvst);
+
+$sqliu = "INSERT INTO `visitors` (`visitor`, `numVisits`) VALUES ('$visitor', $nrvst) ON DUPLICATE KEY UPDATE `numVisits`=$nrvst + 1";
 $sqlsel = "SELECT * FROM `visitors`";
 
 if (!$conn->query($sqliu)) echo 'Error: ' . $conn->error;
