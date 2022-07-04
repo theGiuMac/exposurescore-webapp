@@ -9,7 +9,7 @@
    }
    require "./connectionDB.php";
    $sqlupdate = "UPDATE `visitors` SET visits = visits+1 WHERE id = 1";
-   if (!$conn->query(sql)) echo $conn->error;
+   if (!$conn->query($sqlupdate)) echo $conn->error;
 ?>
 
 <html>
@@ -171,8 +171,6 @@
         </div>
     </div>
 
-    <center><script type="text/javascript" src="//widget.supercounters.com/ssl/hit.js"></script><script type="text/javascript">sc_hit(1640876,15,6);</script><br>
-    </center>
 
     <ul style="margin-top: 100px; margin-bottom: 25px; text-align: center;">
         <a class="nav-link active" aria-current="page" href="./analytics.php">
