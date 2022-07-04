@@ -171,7 +171,7 @@
         </div>
     </div>
 
-    <center><script type="text/javascript" src="//widget.supercounters.com/ssl/hit.js"></script><script type="text/javascript">sc_hit(1640876,15,6);</script><br><noscript><a href="http://www.supercounters.com/">free online counter</a></noscript>
+    <center><script type="text/javascript" src="//widget.supercounters.com/ssl/hit.js"></script><script type="text/javascript">sc_hit(1640876,15,6);</script><br>
     </center>
 
     <ul style="margin-top: 100px; margin-bottom: 25px; text-align: center;">
