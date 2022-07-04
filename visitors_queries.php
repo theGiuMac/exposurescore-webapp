@@ -19,7 +19,7 @@ $visitor = getRealIpAddr();
 $dt = time();
 $nrvst = 0;
 
-$sqliu = "INSERT INTO `visitors` (`visitor`, `numVisits`) VALUES ('$visitor', $dt) ON DUPLICATE KEY UPDATE `dt`=$dt";
+$sqliu = "INSERT INTO `visitors` (`visitor`, `numVisits`) VALUES ('$visitor', $dt) ON DUPLICATE KEY UPDATE `numVisits`=$dt";
 $sqlsel = "SELECT * FROM `visitors`";
 
 if (!$conn->query($sqliu)) echo 'Error: ' . $conn->error;
