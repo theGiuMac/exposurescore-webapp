@@ -4,7 +4,7 @@
     require "./connectionDB.php";
 
     $sql = "CREATE TABLE `visitors` (
-        `id` INT, AUTO_INCREMENT, PRIMARY KEY,
+        `id` INT AUTO_INCREMENT PRIMARY KEY,
         `visits` INT(15) UNSIGNED NOT NULL DEFAULT 0
     ) CHARACTER SET utf8 COLLATE utf8_general_ci";
 
