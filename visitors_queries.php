@@ -16,22 +16,24 @@ if (!isset($_SESSION)) session_start();
 require "./connectionDB.php";
 
 $visitor = getRealIpAddr();
-$dt = time();
+$dt = 1;
 $nrvst = 0;
 
-$sqliu = "INSERT INTO `visitors` (`visitor`, `numVisits`) VALUES ('$visitor', $dt) ON DUPLICATE KEY UPDATE `numVisits`=$dt";
+$sqliu = "INSERT INTO `visitors` (`visitor`, `numVisits`) VALUES ('$visitor', $dt) ON DUPLICATE KEY UPDATE `numVisits`=$dt + 1";
 $sqlsel = "SELECT * FROM `visitors`";
 
 if (!$conn->query($sqliu)) echo 'Error: ' . $conn->error;
-    $result = $conn->query($sqlsel);
+$result = $conn->query($sqlsel);
 
 if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
         if (preg_match($rgxvst, $row['visitor'])) $nrvst++;
     }
+} else {
+    echo "<h4>No visitors!</h4>";
 }
 
 $conn->close();
 
-$reout = '<div id="visitors"><h4>Visitors: ' . $nrvst . '</h4></div>';
+$reout = '<h4>Visitors: ' . $nrvst . '</h4>';
 echo $reout;
