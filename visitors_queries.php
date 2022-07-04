@@ -19,6 +19,7 @@ $visitor = getRealIpAddr();
 
 $sqlgetnrvst = "SELECT numVisits FROM `visitors` WHERE visitor = " . $visitor;
 $nrvst = $conn->query($sqlgetnrvst);
+if ($nrvst == False) $nrvst = 1;
 
 $sqliu = "INSERT INTO `visitors` (`visitor`, `numVisits`) VALUES ('$visitor', $nrvst) ON DUPLICATE KEY UPDATE `numVisits`=$nrvst + 1";
 $sqlsel = "SELECT * FROM `visitors`";
