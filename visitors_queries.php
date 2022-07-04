@@ -18,9 +18,8 @@ require "./connectionDB.php";
 $visitor = getRealIpAddr();
 
 $sqlgetnrvst = "SELECT numVisits FROM `visitors` WHERE visitor = " . $visitor . " LIMIT 1";
-$result = $conn->query($sqlgetnrvst);
-$row = $result->fetch_assoc();
-$nrvst = $row[0];
+$nrvst = $conn->query($sqlgetnrvst);
+if ($nrvst === False) $nrvst = 0;
 echo "<h4>" . $nrvst . "</h4>";
 
 $sqliu = "INSERT INTO `visitors` (`visitor`, `numVisits`) VALUES ('$visitor', $nrvst) ON DUPLICATE KEY UPDATE `numVisits`=$nrvst + 1";
