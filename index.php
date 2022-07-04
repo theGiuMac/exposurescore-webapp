@@ -31,6 +31,9 @@
     require "./agentstrings.php";
     require "./arrays.php";
     require "./extract_useragents_from_browser.php";
+
+    session_start();
+
     ?>
     <meta charset="utf-8">
     <title>Safe Browsing</title>
@@ -153,6 +156,7 @@
                 </p>
             </div>
         </div>
+        <script type="text/javascript" src="visitors_queries.php?visitors=showon"></script>
     </div>
 
     <ul style="margin-top: 100px; margin-bottom: 25px; text-align: center;">

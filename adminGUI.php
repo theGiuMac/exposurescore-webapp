@@ -47,6 +47,27 @@
                 x.style.display = "none";
             }
         }
+
+        function updateNulls() {
+            var a = document.getElementById("nulls").innerText;
+            if (a == null || a == "") {
+                var x = document.getElementById("updateNulls");
+                x.style.display = "block";
+            } else {
+                var x = document.getElementById("updateNulls");
+                x.style.display = "none";
+            }
+        }
+        function updateRelativeUn() {
+            var a = document.getElementById("rels").innerText;
+            if (a == null || a == "") {
+                var x = document.getElementById("updateUnRel");
+                x.style.display = "block";
+            } else {
+                var x = document.getElementById("updateUnRel");
+                x.style.display = "none";
+            }
+        }
     </script>
 
 </head>
@@ -171,6 +192,9 @@
                 error_reporting(-1);
                 if (isset($_POST['update'])) {
                     require "./update_Num_Nulls.php";
+                    require "./update_unnormalized_scores.php";
+                    require "./update_normalized_scores.php";
+                    echo "<br><h4>Updating successfully was done for <span style='color:red;'>$totalRows</span> rows, in $time_privacy_score</h4>";
                 }
                 ?>
             </div>
