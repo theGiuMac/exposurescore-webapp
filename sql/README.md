@@ -12,6 +12,8 @@ Instructions for initial setup (running them overrides the current database stat
       - Insertion of attributes at seed database state
       - Insertion of seed dataset of parsed user agents (full User Agent strings are not included!)
 
+   Alternatively, the useragents.sql contains all updated rows until the new in-app browsers including their versions
+   and updated attribute table.
 
 
 This folder will contain different dumps of the database at different stages of collection, so that we keep track of a temporal reference for the newly added User Agent strings.

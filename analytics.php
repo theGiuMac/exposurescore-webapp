@@ -22,12 +22,6 @@
           <img border="0" alt="HomePage" src="./logo1.png" width="250" heigth="250">
         </a>
       </section>
-      <section id="searchAttribute">
-        <div id="search">
-          <input id="btnSearch" type="button" value="Search" />
-          <input type="text" name="txtSearch" id="txtSearch" />
-        </div>
-      </section>
       <section id="deviceForm">
         <form action="#" id="device-form" method="post">
           <label for="device_info">Choose a device attribute identified by the User Agent:</label>
